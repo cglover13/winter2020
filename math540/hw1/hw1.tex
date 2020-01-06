@@ -1,0 +1,75 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 571\\
+12/11/19
+\end{flushright}
+
+\begin{center}
+\textbf{HW 1.1}\\
+1.1.2,4,7,14
+\end{center}
+
+\begin{exercise}{1.1.2}
+Consider the set of real numbers $\mathbb{R}$ and the function $d(x,y)=(x-y)^2$ where $x,y\in\mathbb{R}$. We show that $d$ is a metric using definition 1.1-1.
+\begin{enumerate}
+\item Since $x,y$ are real-valued and finite, we know that $x-y$ is real-valued and finite. We also know that $(x-y)^2$ is real valued and finite. Thus, $d(x,y)$ is real-valued and finite. Further, the square of any real number is nonnegative. Thus, $d(x,y)$ is nonnegative.
+\item Assume that $d(x,y)=0$. Then $(x-y)^2=0$. Taking the square root of both sides we find that $x-y=0$. Thus, $x=y$.
+
+Now assume that $x=y$. Then $d(x,y)=(x-y)^2=(x-x)^2=0^2=0$. So $d(x,y)=0$.
+
+\item Note that $x-y=-(y-x)$. So squaring both sides we get that $(x-y)^2=(-(y-x))^2=(-1)^2(y-x)^2=(y-x)^2$. So $(x-y)^2=(y-x)^2$. Hence, $d(x,y)$ is symmetric.
+
+\item Let $z\in\mathbb{R}$. Then we see that
+\begin{align}
+(x-y)^2&=x^2-2xy+y^2\\
+&\leq x^2-2xy+y^2+2z^2
+\end{align}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{1.1.4}
+Let the set $X$ be a set with 2 points $x,y$. Let $r$ be a positive real-number. We define a function $d_r$ on $X$ by 
+\[d_r(x,y)=\begin{cases}0&x=y\\r&x\neq y\end{cases}.\]
+Thus, $d_r$ is clearly real-valued since $r,0\in\mathbb{R}$, clearly nonnegative since $0=0$ and $r>0$, and is clearly finite since $r,0\in\mathbb{R}$. Note that if $d(x,y)=0$, then $x=y$ by definition. Further, if $x=y$, then $d(x,y)=0$. Next, if $x=y$, then $d(x,y)=0=d(y,x)$ and if $x\neq y$, then $d(x,y)=r=d(y,x)$. So $d$ is symmetric. Lastly, we see that $d(x,y)=0+d(x,y)=d(x,x)+d(x,y)$ and $d(x,y)=d(x,y)+0=d(x,y)+d(y,y)$. So the triangle inequality holds. Thus $d_r$ is a metric.
+
+It suffices to show that $d_r$ is the only possible metric on $X$. Assume another metric exists on $X$ that is not $d_r$. We know that $d(x,y)=0$ if $x=y$. Then $d(x,y)=r$ for some positive real-valued number $r$ when $x\neq y$. This is because $d(x,y)=0$ if and only if $x=y$ and $d$ is nonnegative. Thus, $d=d_r$. This is a contradiction. So every metric on $X$ can be expressed as a metric $d_r$ where $r$ is any positive real-valued number.
+
+Now let $Y$ be the set with 1 point. We denote this point as $\alpha$. Let $d$ be a metric defined on $Y\times Y$. So $d$ is only defined for $d(\alpha,\alpha)$. Since $d$ is a metric, $d(\alpha,\alpha)=0$. So any metric on $Y$ is the 0 metric (i.e., $d(x,y)=0$ for all $x,y$).
+\end{exercise}
+
+\begin{exercise}{1.1.7}
+Let $A$ be a subspace of $l^\infty$ consisting of all sequences of zeros and ones. 
+\end{exercise}
+
+\begin{exercise}{1.1.14}
+Let $d$ be a metric on $X$. We want to show that $d(x_1,x_n)\leq d(x_1,x_2)+d(x_2,x_3)+\dotsb+d(x_{n-1},x_n)$ for all $n\mathbb{Z}$ where $n\geq 2$ (since if $n=1$, this pattern does not make sense).
+Let $n=2$. Then $d(x_1,x_2)\leq d(x_1,x_2)$ (in fact they are equal). Then for $n=3$, let $x_1,x_2,x_3\in X$. We get that $d(x_1,x_3)\leq d(x_1,x_2)+d(x_2,x_3)$ since $d$ is a metric. 
+
+Now assume by induction that $d(x_1,x_n)\leq d(x_1,x_2)+d(x_2,x_3)+\dotsb d(x_{n-1},x_n)$ for some $n\geq 3$. Then we see that $d(x_1,x_{n+1})\leq d(x_1,x_n)+d(x_n,x_{n+1})$ by the triangle inequality since $d$ is a metric. Then by the inductive hypothesis,
+\[d(x_1,x_{n+1})\leq d(x_1,x_2)+\dotsb+d(x_{n-1},x_n)+d(x_n,x_{n+1}).\]
+Hence for all $n\in\mathbb{Z}$ where $n\geq 2$, $d(x_1,x_n)\leq d(x_1,x_2)+d(x_2,x_3)+\dotsb+d(x_{n-1},x_n)$.
+\end{exercise}
+
+\end{document}
