@@ -1,0 +1,46 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 525\\
+1/8/19
+\end{flushright}
+
+\begin{exercise}{1}
+\begin{enumerate}
+\item $\begin{pmatrix}0&1&1&0\\1&2&1&0\\1&1&0&1\\0&0&1&2\end{pmatrix}$
+\item $\begin{pmatrix}0&0&0&0&1\\1&0&0&0&0\\0&1&0&0&1\\0&0&1&0&0\\0&1&0&0&0\end{pmatrix}$
+\item $\begin{pmatrix}0&1&0&0&0&0\\1&0&1&0&1&0\\0&2&0&1&0&1\\0&0&1&0&1&0\\0&1&0&3&0&0\\0&0&5&0&0&0\end{pmatrix}$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2}
+\begin{enumerate}
+\item Vertices are basketball teams and edges are how many times they played each other.
+\item Vertices are people on twitter and edges are whether one person follows another (but the one being followed does not necessarily follow back).
+\item Vertices are countries and edges are whether the countries have fought in a war (civil wars cause self loops).
+\item Vertices are people and edges are how many times person A has cited person B in a research paper.
+\end{enumerate}
+\end{exercise}
+
+\end{document}
