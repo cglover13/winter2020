@@ -1,0 +1,58 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 540\\
+1/9/20
+\end{flushright}
+
+\begin{center}
+\textbf{HW 1.1}\\
+1.2.3,4,5,8
+\end{center}
+
+\begin{exercise}{1.2.3}
+Let $x=(\xi_i)\in l^2$ and $y=(\eta_i)\in l^2$. 
+Then the Cauchy-Schwarz inequality yields
+\[\sum_{j=1}^\infty|\xi_j\eta_j|\leq\sqrt{\sum_{k=1}^\infty|\xi_k|^2}\sqrt{\sum_{m=1}^\infty|\eta_m|^2}.\]
+Let $x=(\xi_1,...,\xi_n)$ and $y=(1,1,...,1)$ where $y$ has length $n$. Then the Cauchy Schwarz inequality gives
+\begin{align}
+\sum_{i=1}^n|\xi_i(1)|&\leq\sqrt{\sum_{k=1}^n|\xi_k|^2}\sqrt{\sum_{k=1}^n1^2}\\
+\Bigl(\sum_{i=1}^n|\xi_i|\Bigr)^2&\leq n\sum_{k=1}^n|\xi_k|^2,
+\end{align}
+by squaring both sides and note that $\sum_{k=1}^n1^2=n$.
+\end{exercise}
+
+\begin{exercise}{1.2.4}
+Consider the sequence $S_n=(\frac{1}{\log(n)})$. Since $\log(n)$ is increasing as $n\rightarrow\infty$, then $S_n$ converges to 0. However, note that $\sum_{n=1}^\infty\frac{1}{n}<\sum_{n=1}^\infty\frac{1}{\log(n)^p}$ for all $p>0$. Since $\sum_{n=1}^\infty\frac{1}{n}$ diverges, so does $S_n$ for all $p\geq 1$. So $S_n\notin l^p$ for all $p\geq1$.
+\end{exercise}
+
+\begin{exercise}{1.2.5}
+Consider the sequence $S_n=(\frac{1}{n})$. It is commonly know that for $p=1$, then $\sum_{n=1}^\infty\frac{1}{n}$ diverges (i.e. the harmonic series). However we see that the series
+$\sum_{n=1}^\infty2^n(\frac{1}{2^n})^p=\sum_{n=1}^\infty2^n(1-p)$. This series converges if and only if $p>1$. If this series converges, then by the Cauchy test, $\sum_{n=1}^\infty\frac{1}{n^p}$ converges. Thus for all $p>1$, $S_n\in l^p$. (This was found on accident on wikipedia while looking for convergence tests to check results. All work was done without referring to the result though.)
+\end{exercise}
+
+\begin{exercise}{1.2.8}
+Let $A=\{0,1\}$ and $B=\{-1,0\}$. Then $D(A,B)=0$ but $A\neq B$ since $-1\notin A$ and $-1\in B$.
+\end{exercise}
+\end{document}
