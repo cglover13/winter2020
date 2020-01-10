@@ -1,0 +1,117 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 522\\
+1/9/20
+\end{flushright}
+
+\begin{center}
+\textbf{HW 1}\\
+2.1,2a,2b,2c,6,12,13,14
+\end{center}
+
+\begin{exercise}{2.1}
+\begin{enumerate}
+\item Let $\Omega$ be the entire set. Note that $\Omega\cap\emptyset=\emptyset$. Then
+\[P(\Omega)=P(\Omega\cup\emptyset)=P(\Omega)+P(\emptyset).\]
+So $1=1+P(\emptyset)$. Thus, $P(\emptyset)=0$.
+
+\item Assume that $\alpha\subseteq\beta$. Note that $\beta=(\beta\cap\alpha^c)\cup\alpha$.  Note that $(\beta\cap\alpha^c)\cap\alpha=\emptyset$. Thus,
+\begin{align}
+P(\beta)&=P((\beta\cap\alpha^c)\cup\alpha)\\
+&=P(\beta\cap\alpha^c)+P(\alpha)\\
+&\geq P(\alpha)&\text{since $P(\beta\cap\alpha^c)\geq 0$}
+\end{align}
+
+\item Note the following $\alpha\cup\beta=(\alpha\cup\beta)\cap(\beta\cup\beta^c)$ since $(\beta\cup\beta^c)$. This means that $\alpha\cup\beta=\beta\cup(\alpha\cap\beta^c)$. Then $P(\alpha\cup\beta)=P(\beta)+P(\alpha\cap\beta^c)$. Further note that $P(\alpha)=P((\beta\cap\alpha)\cup(\beta^c\cap\alpha))=P(\beta\cap\alpha)+P(\beta^c\cap\alpha)$. This tells us that $P(\alpha)-P(\beta\cap\alpha)=P(\beta^c\cap\alpha)$. Plugging into our first equation we have
+\[P(\alpha\cup\beta)=P(\beta)+P(\beta)-P(\beta\cap\alpha).\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2.2}
+\begin{enumerate}
+\item Let $X$ and $Y$ be binary random variables. Assume that $x^0\perp y^0$. We want to show that $x^0\perp y^1,x^1\perp y^0,x^1\perp y^1$.
+\begin{enumerate}
+\item Note that $P(x^0\mid y^0)=P(x^0)$. So $1-P(x^0\mid y^0)=1-P(x^0)$. So $P(x^1\mid y^0)=P(x^1)$. So $x^1\perp y^0$.
+\item Note that $P(y^0\mid x^0)=P(y^0)$. So $1-P(y^0\mid x^0)=1-P(y^0)$. Then $P(y^1\mid x^0)=P(y^1)$. So $y^1\perp x^0$. 
+\item Then $P(y^1\mid x^1)=1-P(y^0\mid x^1)=1-P(y^0)=P(y^1)$. So $x^1\perp y^1$. 
+\end{enumerate}
+\item Define $X$ where $P(x^0)=.2,P(x^1)=.4,$ and $P(x^2)=.4$. Define $Y$ where $P(y^0)=.3$, $P(y^1\mid x^0)=.1$, $P(y^1\mid x^1)=.4$, $P(y^1\mid x^2)=0$, $P(y^3)=.2$.
+
+\item This is not the case. Let $Z$ be a binary valued random variable. Let $X$ and $Y$ be random variables, each with three possible events. Assume that $x^0\perp y^0$ always.  Assume that if $z^0$ occurs, $P(x^2)=0$ and $P(y^2)=0$. Then $X$ and $Y$ are independent by part (i). However assume that $P(x^i\mid z^1)\neq 0$ and $P(y^i\mid z^1)\neq 0$ for all $i$. Then $X$ and $Y$ are not necessarily independent by part ii. So $(X\perp Y\mid z^0)\not\Rightarrow(X\perp Y\mid Z)$ since $X$ and $Y$ are not necessarily independent given $z^1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{6}
+Let $X,Y$ and $Z$ be random variables. Then
+\begin{align}
+\sum_{z}P(X,z\mid Y)&=\sum_{z}P(X\mid Y)P(z\mid X,Y)&\text{by the chain rule}\\
+&=P(X\mid Y)\sum_{z}P(z\mid X,Y)\\
+&=P(X\mid Y)&\text{since $\sum_{z}P(z\mid X,Y)=1$}.
+\end{align}
+So $\sum_{z}P(X,z\mid Y)=P(X\mid Y)$.
+\end{exercise}
+
+\begin{exercise}{12}
+Let $X$ be a random variable such that $P(X\geq 0)=1$, then for any $t\geq 0$
+
+\begin{align}
+\mathbb{E}(X)&=\sum_xxP(X=x)\\
+&\geq\sum_{x\geq t}xP(X=x)\\
+&\geq\sum_{x\geq t}tP(X=x)\\
+&=t\sum_{x\geq t}P(X=x)\\
+&=tP(X\geq t).
+\end{align}
+
+So $\frac{\mathbb{E}(X)}{t}\geq P(X\geq t).$  (I used a hint online as I couldn't figure out the proof and didn't want to just look at the proof in the ACME textbook. Due to this, I probably shouldn't receive credit for the problem).
+\end{exercise}
+
+\begin{exercise}{13}
+Let $X$ be a random variable. Then
+\begin{align}
+P(|X-\mathbb{E}(X)|\geq t)&=P((X-E(X))^2\geq t^2)\\
+&\leq \frac{\mathbb{E}((X-\mathbb{E}(X))^2)}{t^2}&\text{by Markov's inequality}\\
+&=\frac{\text{Var}(X)}{t^2}
+\end{align}
+\end{exercise}
+
+\begin{exercise}{14}
+Let $X\sim\mathscr{N}(\mu;\sigma^2)$. Let $Y=aX+b$. Then $\mathbb{E}(Y)=\mathbb{E}(aX+b)=\mathbb{E}(aX)+\mathbb{E}(b)=a\mathbb{E}(X)+b=a\mu+b$. Further, Var($Y)=\text{Var}(aX+b)=a^2\text{Var}(X)=a^2\sigma^2$. Further we note that if $a=0$, then $Y$ gives probability $b$ to all events (since the expected value is $b$ and the variance is 0). This is equivalent to $Y\sim\mathscr{N}(b,0)$. If $a$ is not 0, then 
+\begin{align}
+P(Y\geq y)&=P(aX+b\geq y)\\
+&=P(aX\geq y-b)\\
+\end{align}
+If $a>0$, then we get that
+\begin{align}
+P(Y\geq y)&=P(X\geq\frac{y-b}{a}).
+\end{align}
+If $a<0$, then we get that
+\begin{align}
+P(Y\geq y)&=P(X\leq\frac{y-b}{a})\\
+&=1-P(X\geq\frac{y-b}{a}).
+\end{align}
+
+Since $X$ is distributed normally, and $Y$ can be written in terms of of the probability of $X$, $Y$ must also be normal. So $Y\sim\mathscr{N}(a\mu+b;a^2\sigma^2)$.
+\end{exercise}
+\end{document}
