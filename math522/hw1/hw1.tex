@@ -57,7 +57,7 @@ P(\beta)&=P((\beta\cap\alpha^c)\cup\alpha)\\
 \item Note that $P(y^0\mid x^0)=P(y^0)$. So $1-P(y^0\mid x^0)=1-P(y^0)$. Then $P(y^1\mid x^0)=P(y^1)$. So $y^1\perp x^0$. 
 \item Then $P(y^1\mid x^1)=1-P(y^0\mid x^1)=1-P(y^0)=P(y^1)$. So $x^1\perp y^1$. 
 \end{enumerate}
-\item Define $X$ where $P(x^0)=.2,P(x^1)=.4,$ and $P(x^2)=.4$. Define $Y$ where $P(y^0)=.3$, $P(y^1\mid x^0)=.1$, $P(y^1\mid x^1)=.4$, $P(y^1\mid x^2)=0$, $P(y^3)=.2$.
+\item Define $X$ where $P(x^0)=.2,P(x^1)=.4,$ and $P(x^2)=.4$. Define $Y$ where $P(y^0)=.1$, $P(y^1\mid x^0)=.8$, $P(y^1\mid x^1)=.2$, $P(y^1\mid x^2)=.3$, $P(y^3\mid x^0)=.1, P(y^3\mid x^1)=.7, P(y^3\mid x^2)=.6$. Note that $x^0\perp y^0$. Further, $P(y^1\mid x^1)=.2$. However, $P(y^1)=.2(.8)+.4(.2)+(.4)(.3)=.16+.08+.12=.36\neq P(y^1\mid x^1)$. So $y^1$ and $x^1$ are not independent. So $X$ and $Y$ are not independent.
 
 \item This is not the case. Let $Z$ be a binary valued random variable. Let $X$ and $Y$ be random variables, each with three possible events. Assume that $x^0\perp y^0$ always.  Assume that if $z^0$ occurs, $P(x^2)=0$ and $P(y^2)=0$. Then $X$ and $Y$ are independent by part (i). However assume that $P(x^i\mid z^1)\neq 0$ and $P(y^i\mid z^1)\neq 0$ for all $i$. Then $X$ and $Y$ are not necessarily independent by part ii. So $(X\perp Y\mid z^0)\not\Rightarrow(X\perp Y\mid Z)$ since $X$ and $Y$ are not necessarily independent given $z^1$.
 \end{enumerate}
