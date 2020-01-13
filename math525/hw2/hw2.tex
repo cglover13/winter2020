@@ -37,7 +37,7 @@ Now select $v_2$ and consider all the vertices connect to $v_2$. Order the set o
 
 Consider a graph $G=(V,E)$ where $V=\{v_1,v_2,...,v_n\}$. Without loss of generality, select vertex $v_1$ and assume that there is an edge between $v_1$ and $v_2,...,v_b$. Make each of these edges directed towards $v_1$. Now consider the set of all vertices which have at least one directed edge and order them. Order these vertices and select the first. Make every undirected edge connected to this vertex a directed edge pointed towards the vertex in question. Repeat for all vertices in the order set. Once all vertices have been considered, consider the new set of all vertices which have at least one directed edge and order them. Repeat the process on this set until all vertices in the set have been considered. Continue creating this set and directing edges until all edges have been directed. In the case that the graph has disconnected components, perform this process on each component.
 
-This algorithm will create a directed graph with no directed cycles.
+We now show the graph created by the algorithm is acyclic. Drawing this graph, we order the nodes $v_1$ to $v_n$ from bottom to top. Then all edges will point down (since the algorithm added edges in the order $v_1$ to $v_n$. Then by page 112, this graph is acyclic.
 \end{exercise}
 
 \begin{exercise}{3}
@@ -73,11 +73,11 @@ This algorithm will create a directed graph with no directed cycles.
 \end{pmatrix}
 $
 \item $\begin{pmatrix}
-0&0&1&0&0\\
-0&0&1&1&1\\
-1&1&0&1&1\\
-0&1&1&0&1\\
-0&1&1&1&0
+1&0&1&0&0\\
+0&2&2&1&1\\
+1&2&3&1&1\\
+0&1&1&2&1\\
+0&1&1&1&1
 \end{pmatrix}$
 \end{enumerate}
 \end{exercise}
