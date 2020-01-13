@@ -1,0 +1,67 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 540\\
+1/11/20
+\end{flushright}
+
+\begin{center}
+\textbf{HW 3}\\
+1.3.1,5,8,14,15
+\end{center}
+
+\begin{exercise}{1.3.1}
+Let $x\in B(x_0;\epsilon)$. Then $d(x,x_0)<\epsilon$. Let $Y$ be a set such that for all $y\in Y$, $d(y,x_0)=\epsilon$. Let $y_0=\text{argmin}_{y\in Y} d(y,x)$. Define $\delta=d(y_0,x)$. Then there exists a ball $B(x;\delta/2)$ such that $x\in B(x;\delta/2)$. Since all the points $z\in B(x;\delta/2)$, and $d(x,y_0)>\delta/2$, then $z\in B(x_0;\epsilon)$. So there exists an open ball around every $x\in B(x_0;\epsilon)$. So an open ball is an open set.
+
+ Consider the closed ball $\overline{B(x_0;\epsilon)}$. Let $x$ be an element of the complement of the closed ball. 
+ Let $Y$ be a set such that for all $y\in Y$, $d(y,x_0)=\epsilon$. Let $y_0=\text{argmin}_{y\in Y} d(y,x)$. Define $\delta=d(y_0,x)$. Then there exists a ball $B(x;\delta/2)$ such that $x\in B(x;\delta/2)$. Since all the points $z\in B(x;\delta/2)$, and $d(x,y_0)>\delta/2$, then $z\notin \overline{B(x_0;\epsilon)}$.
+ So the complement of the closed ball $\overline{B(x_0;\epsilon)}$ is open. So every closed ball is a closed set.
+\end{exercise}
+
+\begin{exercise}{1.3.5}
+Consider the set $X$. From the properties of a topology (T1), $X$ is an open set. Note that $X^C=\emptyset$. By the properties of a topology (T1), $\emptyset$ is an open set. So $X$ is also a closed set.
+
+Similarly, by the properties of a topology (T1), $\emptyset$ is an open set, but since $X$ is open and $\emptyset^C=X$, $\emptyset$ is also a closed set.
+
+Consider a metric space $X=(X,d)$ where $d$ is the discrete metric. Let $Y\subset X$ and let $y\in Y$. Then $B(y;1)=\{y\}$ so $B(y;1)\in Y$ since $y\in Y$. So every subset of $X$ is open.
+
+Now consider $Y^c$ and let $z\in Y^C$. Then $B(z;1)=\{z\}$. So $B(z;1)\in Y^C$. So $Y^C$ is open. Thus, $Y$ is closed.
+
+So all subsets of $X$ are both open and closed.
+\end{exercise}
+
+\begin{exercise}{1.3.8}
+Consider the space $X=(X,d)$ where $d$ is the discrete metric. Then the 
+\end{exercise}
+
+\begin{exercise}{1.3.14}
+Assume that $T\colon X\rightarrow Y$ is continuous. Let $M\subset Y$ and $T^{-1}(M)$ be the inverse image of $M$. Let $M$ be closed. Then $M^C$ is open. Since $T$ is continuous, $T^{-1}(M^C)$ is also open. Let $m\in T^{-1}(M)^C$. Then $T(m)\in M^c$. So $T^{-1}(M)^C\subset T^{-1}(M^C)$. Since $T^{-1}(M^C)$ is open, then $T^{-1}(M)^C$ is open. So $T^{-1}(M)$ is closed.
+
+Let $T\colon X\rightarrow Y$ be a mapping from $X$ to $Y$. Let $M$ be a closed set in $Y$. Then $M^c$ is open. Assume that $T^{-1}(M)$ is also closed. Let $m\in M^C$. Since $M$ is closed, then $m$ has an open ball around it still contained in $M^C$. Then $T^{-1}(m)\notin T^{-1}(M).$ So $T^{-1}(m)\in T^{-1}(M)^c$.  Thus, $T^{-1}(m)$ has open ball around it still contained in $T^{-1}(M)^c$ since $T^{-1}(M)$ is closed. Since $m$ is arbitrary, $T^{-1}(M)^c$ is open. So the inverse image of every open set in $Y$ is an open set in $X$. Thus, $T$ is continuous.
+\end{exercise}
+
+\begin{exercise}{1.3.15}
+Let $X=(\mathbb{R},d)$ where $d$ is the discrete metric and $Y=(\mathbb{R},\overline{d})$ where $\overline{d}$ is the Euclidean metric. Define $T(A)=A$ where $A$ is a subset of the real line. Then for every open set $A\subset Y$, $T^{-1}(Y)$ is open (since every subset in $X$ is open. However, consider the subset $[0,1]\in X$. This set is open, however $T(X)$ is not open.
+\end{exercise}
+\end{document}
