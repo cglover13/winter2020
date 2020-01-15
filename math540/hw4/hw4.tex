@@ -37,7 +37,7 @@ So $x_n\rightarrow x$.
 \end{exercise}
 
 \begin{exercise}{1.4.4}
-Let $(x_n)$ be a Cauchy sequence. Thus, for every $\epsilon>0$, there exists $N$ such that for $m,n>N$, $d(x_n,x_m)<\epsilon$. Let $M$ be an element of the metric space $X$ such that $d(M,x_n)>1$.  
+Let $(x_n)$ be a Cauchy sequence. Thus, for every $\epsilon>0$, there exists $N$ such that for $m,n>N$, $d(x_n,x_m)<\epsilon$. Now consider all $x_k$ such that $k\leq N$. Since $k$ is finite, we are looking at a finite number of elements. Let $M=\sup_{x_k,x_j\colon k,j\leq N}d(x_k,d_j)$. We can do this because there are finite elements. Let $B=\max(M,\epsilon)$. Then $\sup_{x_r,x_s\in(x_n)}d(x,y)\leq B<B+1$. Since $B+1$ is finite, $(x_n)$ is bounded. So every Cauchy sequence is bounded.
 \end{exercise}
 
 \begin{exercise}{1.4.5}
