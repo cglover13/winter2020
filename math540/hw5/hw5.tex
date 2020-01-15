@@ -1,0 +1,57 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 540\\
+1/14/19
+\end{flushright}
+
+\begin{center}
+HW 5\\
+1.5.1,2,3,8,10
+\end{center}
+
+\begin{exercise}{1.5.1}
+Let $a,b\in\mathbb{R}$ and $a<b$. Consider the open interval $(a,b)$. The sequence $(a+\frac{b-a}{n})\in (a,b)$. Let $\epsilon >0$. Choose $N=\frac{(m-n)(b-a)}{\epsilon}$ such that $m,n>N$. Then, \[|a+\frac{b-a}{m}-a-\frac{b-a}{n}|=|\frac{m(b-a)-n(b-a)}{mn}|=|\frac{(m-n)(b-a)}{mn}|<|\frac{(m-n)(b-a)}{N}|=\epsilon.\] So the sequence is Cauchy. However as $n\rightarrow\infty$, $(a+\frac{b-a}{n})\rightarrow a\notin (a,b)$. So $(a,b)$ is not complete.
+
+Now let $(x_n)$ be a Cauchy sequence on $[a,b]$. Then for every $\epsilon>0$, there exists $N$ such that for $n,m>N$, $|x_n-x_m|<\epsilon$. Since $\mathbb{R}$ is complete, we know that $(x_n)$ converges. Let's say $x_n\rightarrow x$ as $n\rightarrow\infty$. So there exists $\epsilon^*>0$ such that for some $N$, $|x_n-x|<\epsilon^*$ for $n>N$. Thus, there exists an open ball $B(x_n,\epsilon^*)$ such that $x$ is an element of this ball. 
+\end{exercise}
+
+\begin{exercise}{1.5.2}
+Let $X$ be the space of all ordered $n$-tuples $x=(x_1,...,x_n)$ for real numbers and $d(x,y)=\max_j|x_j-y_j|$ where $y=(y_i)$. Let $(x_k)$ be a Cauchy sequence in $X$. Then for $\epsilon>0$, there exists $N$ with $m,k>N$ such that $d(x_k,x_m)=\max_j|x_{k_j}-x_{m_j}|<\epsilon$. Since this is true, $d(x_{k_i},x_{m_i})<\epsilon$ where $x_{k_i}$ is the $i^{th}$ entry of the $k^{th}$ tuple. Since each entry is from $\mathbb{R}$ and $\mathbb{R}$ is complete, then for $\frac{\epsilon}{n}>0$, there exists $N$ such that when $i>N$, $|x_{k_i}-x^*_i|<\frac{\epsilon}{n}$. Let $x^*=(x_1^*,...,x_n^*)$. Then $d(x_k,x^*)=\max_{j}|x_{k_j}-x^*_j|<\epsilon$. Since $x^*$ is an ordered $n$-tuple of real numbers, $x^*\in X$. So $(x_k)$ converges. 
+\end{exercise}
+
+\begin{exercise}{1.5.3}
+Let $M\subset l^\infty$ be the subspace consisting of all sequences $x=(x_i)$ with at most finitely many nonzero terms. Consider the sequence of sequences $(x_n)=(1+\frac{1}{n},...,1+\frac{1}{n},0,0,...)$ where the first $n$ entries are $1+\frac{1}{n}$. Thus, for $\epsilon>0$, there exists $N=\frac{1}{\epsilon}$ such that when $m>n>N$,
+\[d((x_n),(x_m))=\sup_i|(x_{n_i}-x_{m-i}|=|\frac{1}{m}|<\frac{1}{N}=\epsilon\]. So $(x_n)$ is Cauchy. However each entry is made up of entries in $\mathbb{R}$ which is complete. So $1+\frac{1}{n}$ converges. Namely, as $n\rightarrow\infty$, $1+\frac{1}{n}\rightarrow 1$. So as $n\rightarrow\infty$, $(x_n)\rightarrow(1,1,...)$. This is not a sequence with finitely many nonzero terms, in fact it has infinite. Thus, $(x_n)$ converges to a sequence not in $M$, so it does not converge. So $M$ is not complete.
+\end{exercise}
+
+\begin{exercise}{1.5.8}
+Consider $Y\subset C[a,b]$ the space of all $x\in C[a,b]$ where $x(a)=x(b)$. Let $(x_n)$ be a Cauchy sequence in $Y$. Then for $\epsilon>0$, there exists $N$ such that when $m,n>N$, $d(x_n,x_m)=\max_{t\in[a,b]}|x_n(t)-x_m(t)|<\epsilon$. Since $C[a,b]$ is complete, we know that $(x_n)$ converges to $x$. Thus, for $\epsilon^*>0$, there exist $M$ such that when $n>M$, $d(x_n,x)=\max_t|x_n(t)-x(t)|<\epsilon^*$. Thus, $|x_n(a)-x(a)|<\epsilon^*$ and $|x_n(b)-x(b)|<\epsilon^*$. Since $x_n(a)=x_n(b)$, we know that $|x_n(b)-x(a)|<\epsilon^*$ and $|x_n(a)-x(b)|<\epsilon^*$. So $|x(b)-x(a)|\leq |x(b)-x_n(a)|+|x_n(a)-x_n(a)|<\epsilon^*+\epsilon^*=2\epsilon^*$. Thus, $x\in Y$. So $Y$ is complete.
+\end{exercise}
+
+\begin{exercise}{1.5.10}
+Consider the discrete metric space $X=(X,d)$. Let $(x_n)$ be a Cauchy sequence. Then for $\epsilon>0$, there exist $N$ such that for $m,n>N$, $d(x_n,x_m)<\epsilon$. So $d(x_n,x_m)=0$. Let $x=x_m$. Then $d(x_n,x)=0<\epsilon$. So $(x_n)$ converges. Since $x_m\in (x_n)$, $x_m\in X$. So $X$ is complete.
+\end{exercise}
+
+\end{document}
