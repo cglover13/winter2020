@@ -1,0 +1,102 @@
+\documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 522\\
+1/16/20
+\end{flushright}
+
+
+\begin{exercise}{2.9}
+Let $G$ be an undirected graph. In this case, begin the breadth first search and view all the neighbors of a given node. We call this node $g^0$ and the set of its neighbors $g^0_n$. Then we check the each of the neighbors. As we travel to them, we label each one $g^1$ and the set of its neighbors $g^1_n$. If $g^0_n\cap g^1_n\neq\emptyset$, then there is a cycle. Once we have passed through all neighbors, we check the neighbors of the first node in $g^0_n$ and label this node $g^0_n$ and repeat the process. Further, if a node in is the neighborhood of the current node $g^i$ and is not the previous node $g^{i-1}$ (or $g^{i+1}$), then there is a cycle.
+\end{exercise}
+
+\begin{exercise}{3.1}
+Let $X_1, X_2, X_3$ be random variables. We define the following properties:
+\begin{align}
+P(X_1=x_0)&=.5\\
+P(X_1=x_1)&=.5\\
+P(X_2=x_0)&=.7\\
+P(X_2=x_1)&=.3\\
+P(X_3=x_0)&=.2\\
+P(X_3=x_1)&=.8.
+\end{align}
+As we can see, all the variables are independent. Then we define the probabilities
+\begin{align}
+P(X_1=x_0,X_2=x_0\mid X_3=x_0)&=.13\\
+P(X_1=x_0,X_2=x_0\mid X_3=x_1)&=.02\\
+P(X_1=x_1,X_2=x_1\mid X_3=x_0)&=.3\\
+P(X_1=x_1,X_2=x_1\mid X_3=x_1)&=.05.
+\end{align}
+Thus we see that $X_1,X_2$ is dependent on $X_3$.
+\end{exercise}
+
+\begin{exercise}{3.2}
+\begin{enumerate}
+\item Let $X_1,...,X_n$ be random variables and $C$ be a class variable. Assume that $(X_i\perp\mathbf{X}_{-i}\mid C)$ for all $i$ where $\mathbf{X}_{-i}=\{X_1,...,X_n\}-\{X_i\}$. Then
+\begin{align}
+P(C,X_1,...,X_n)&=P(C)P(X_1\mid C)P(X_2,...,X_n\mid X_1,C)\\
+&=P(C)P(X_1\mid C)P(X_2\mid X_1,C)P(X_3,...,X_n\mid X_1,X_2,C)\\
+&=P(C)\prod_{i=1}^nP(X_i\mid C,X_{i-1},...,X_1)\\
+&=P(C)\prod_{i=1}^nP(X_i\mid C),
+\end{align}
+where the last step used the assumption of independence.
+
+\item Using the property proven in part (i), we see that
+\begin{align}
+\frac{P(C=c_1\mid X_1,...,X_n)}{P(C=c_2\mid X_1,...,X_n)}&=\frac{\frac{P(X_1,...,X_n\mid C=c_1)P(C=c_1)}{P(X_1,...,X_n)}}{\frac{P(X_1,...,X_n\mid C=c_2)P(C=c_2)}{P(X_1,...,X_n)}}\\
+&=\frac{P(X_1,...,X_n\mid C=c_1)P(C=c_1)}{P(X_1,...,X_n\mid C=c_2)P(C=c_2)}\\
+&=\frac{P(C=c_1)}{P(C=c_2)}\prod_{i=1}^n\frac{P(X_i\mid C=c_1)}{P(X_i\mid C=c_2)}.
+\end{align}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{3.3}
+\begin{enumerate}
+\item While having an earthquake does not eliminate the possibility of a burglary, having an earthquake causes the alarm to go off. So if an alarm goes off and there is an earthquake, it decreases the probability that a burglary set off the alarm because the earthquake did happen and was able to set the alarm off.
+
+\item Assume that $P(a^1\mid b^1,e^1)=P(a^1\mid b^0,e^1)=1$. Then
+\begin{align}
+P(b^1\mid a^1,e^1)&=\frac{P(b^1)P(a^1,e^1\mid b^1)}{P(b^0)P(a^1,e^1\mid b^0)+P(b^1)P(a^1,e^1\mid b^1)}\\&=\frac{P(b^1)P(a^1\mid e^1,b^1)}{P(b^0)P(a^1\mid e^1,b^0)+P(b^1)P(a^1\mid e^1,b^1)}\\&=\frac{P(b^1)}{P(b^0)+P(b^1)}=P(b^1).\end{align}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{3.}
+
+\end{exercise}
+
+\begin{exercise}{3.6}
+\begin{enumerate}
+\item $P(t^1\mid d^1)=P(t^1)$ since $D$ is not a parent of $T$. Relevant trails are $D->C->T$ where $D$ has negative influence on $C$ and $C$ has positive influence on $T$.
+\item $P(d^1\mid t^0)=P(d^1)$ since $T$ is not a parent of $D$. Relevant trails are $D->C->T$ where $D$ has negative influence on $C$ and $C$ has positive influence on $T$.
+\item $P(h^1\mid e^1,f^1)=P(h^1\mid e^1)$ since $H$ is a parent of $E$ and not related to $F$. Relevant trails are $H-E-F$ where $H$ has a positive influence on $H$ and $F$ has a negative influence on $E$.
+\item $P(c^1\mid f^0)=P(c^1)$ since $F$ is not a parent of $C$. Relevant trails are $F-E-W-D-C$ and $F-E-H-D-C$ where $D$ has a negative influence on $C$, $D$ has a positive influence on $W$, $H$ has a positive influence on $D$, $H$ has a positive influence on $E$, $E$ has a positive influence on $W$, and $F$ has a negative influence on $E$.
+\item $P(c^1\mid h^0)=P(c^1)$ since $H$ is not a parent of $C$. Relevant trails are $H-D-C$ where $H$ has a positive influence on $D$ and $D$ has a negative influence on $C$.
+\item $P(c^1\mid h^0,f^0)=P(c^1\mid h^0)$ since $H$ and $F$ are not parents of $C$. Relevant trails are $F-E-W-D-C$ and $F-E-H-D-C$ and $H-D-C$ where $D$ has a negative influence on $C$, $D$ has a positive influence on $W$, $H$ has a positive influence on $D$, $H$ has a positive influence on $E$, $E$ has a positive influence on $W$, and $F$ has a negative influence on $E$.
+\item $P(d^1\mid h^1,e^0)=P(d^1\mid h^1)$ since $E$ is not a parent of $D$. Relevant trails are $H-D$ and $E-W-D$ and $E-H-D$ where $H$ has a positive influence on $D$, $E$ has a positive influence on $W$, $D$ has a positive influence on $W$, and $H$ has a positive influence on $E$.
+\item $P(d^1\mid e^1,f^0,w^1)=P(d^1\mid e^1,f^0)$ since $E, F$ and $W$ are not parents of $D$. Relevant trails are $F-E-W-D$ and $F-E-H-D$ where $F$ has a negative influence on $E$, $E$ has a positive influence on $D$, $D$ has a positive influence on $W$, $H$ has a positive influence on $E$ and $H$ has a positive influence on $D$.
+\item $P(t^1\mid w^1,f^0)=P(t^1\mid w^1)$ since $F$ is not a parent of $W$. Relevant trails are $F-E-W-D-C-T$ and $F-E-H-D-C-T$ where $F$ has a positive influence on $E$, $E$ has a positive influence on $W$, $D$ has a positive influence on $W$, $D$ has a negative influence on $C$, $C$ has a positive influence on $T$, $H$ has a positive influence on $D$ and $H$ has a positive influence on $E$.
+\end{enumerate}
+\end{exercise}
+
+\end{document}
