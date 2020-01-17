@@ -41,18 +41,9 @@ We now show the graph created by the algorithm is acyclic. Drawing this graph, w
 \end{exercise}
 
 \begin{exercise}{3}
-\begin{enumerate}
-\item Undirected, cyclic
-\item Directed, cyclic
-\item Undirected, acyclic, planar
-\item Undirected, acyclic, planar
-\item Undirected, cyclic
-\item Citation network
-\item Airports connected by the airplanes that fly between them
-\item Bones in the arm (joints are nodes)
-\item Constellation
-\item Recipes are one type of node and foods are another. They are connected if the food is used in the recipe
-\end{enumerate}
+Consider a simple network consisting of $n$ nodes in a simple component. The maximum number of edges it could have is $\sum_{i=1}^{n-1}i$. This is when every node will connect to every other node. So the first node will have $n-1$ edges coming out of it. For the second node, the node connected the first and second is already drawn, so there are $n-2$ new edges coming out of it. Continuing this procees to the $n^{th}$ node, we see that every node is already connected to the $n^{th}$ node. We add these to get the number of edges. 
+
+The minimum number of edges it could have is $n-1$. Since there is a single component, we know that all the nodes must be connected to some other node in the component. We take the first node and connect it to the second, the second to the third, up to the $n^{th}$. Since no new edge is drawn out of the $n^{th}$ node, there are only $n-1$ edges.
 \end{exercise}
 
 \begin{exercise}{4}

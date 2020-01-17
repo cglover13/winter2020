@@ -1,0 +1,61 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+Math 525\\
+1/16/19
+\end{flushright}
+
+\begin{center}
+HW 4
+\end{center}
+
+\begin{exercise}{1}
+\begin{enumerate}
+\item Let $G$ be an undirected 3-regular graph. So the total degree of $G$ is $3n$ when $n$ is the number of nodes. Further, the number of edges in this graph is $\frac{3n}{2}$. Since the number of edges is an integer, $2\mid 3n$. Since $2\nmid 3$, we know that $2\mid n$. Thus the number of nodes is even.
+\item Let $G$ be an undirected tree. Recall that a tree has exactly $n-1$ edges. So the average degree of a tree is $c=\frac{2(n-1)}{n}<\frac{2n}{n}=2$. So the average degree is strictly less than 2.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2}
+Consider an acyclic directed network of $n$ nodes, labeled $i=1,...,n$ and suppose that the labels are assigned in the manner of Fig. 6.3, such that all edges from nodes with higher labels to nodes with lower. Recall that the total number of edges is $\sum_{i=1}^nk_i^{in}=\sum_{i=1}^nk_i^{out}=m$.
+\begin{enumerate}
+\item Consider the nodes $1,...,r$. The number of ingoing edges to this nodes is $\sum_{i=1}^rk^{in}_i$. The number of outgoing edges from these nodes is $\sum_{i=1}^rk^{out}_i$.
+\item Since nodes $1,...,r$ cannot point to nodes $r+1,...n$, we know that the number of edges pointing from $r+1,...n$ to nodes $1,...,r$ is $\sum_{i=1}^r(k^{in}_i-k^{in}_i)=\sum_{i=r+1}^n(k^{out}_i-k^{in}_i)$. This is because we are counting the number of edges coming into $1,...,r$ and subtracting the edges that came from a node in this set. (Alternatively, we are counting the edges going out of $r+1,...,n$ and subtracting the ones that point to something else in the set $r+1,...n$.
+\item Since every acyclic directed network can be labelled in this way, we know that
+\[k_r^{in}\leq \sum_{i=1}^r k_i^{in}=\sum_{i=r+1}^n(k^{out}_i-k^{in}_i)\]
+and 
+\[k_{r+1}^{out}\leq\sum_{i=1}^r k_i^{in}=\sum_{i=1}^r(k^{in}_i-k^{out}_i)\]
+since the number of nodes going out of $r$ is less than or equal to the number of nodes going from $r+1,...n$ to $1,...,r$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{3}
+Consider a bipartite network, with its two types of nodes, and suppose that there are $n_1$ of type 1 and $n_2$ nodes of type 2. Then the mean degree of partition 1 is counting the number of edges going out of the partition divided by the number of nodes in the partition. Thus, $c_1=\frac{m}{n_1}$. Similarly, $c_2=\frac{m}{n_2}$. So $c_2n_2=c_1n_1$. Thus, $c_2=\frac{n_1}{n_2}c_1$.
+\end{exercise}
+
+\begin{exercise}{4}
+Let $G$ be a tree that has two paths of maximal length. By way of contradiction assume that these two paths do not have any vertices in common. Let these paths both have length $k$ and let the first path be from $v_1$ to $v_2$ and the second path be from $v_3$ to $v_4$. Select the path of greatest length between a vertex from the first path and a vertex from the second path. Without loss of generality, say this path is from $v_1$ to $v_4$. In order to be the longest path between a vertex from the first path and a vertex from the path length, the smallest length of the subpath from $v_1$ to where it will have to leave the path $v_1-v_2$ is $\frac{k}{2}$. If it was any smaller, there would be a longer path between $v_2$ and $v_4$. The same applies for the subpath from $v_4$ to where it will have to leave the path $v_3-v_4$. So the length of $v_1-v_4$ is at least $k$. However, since $v_1-v_2$ and $v_3-v_4$ have not vertices in common, at least one edge must be added to this path to connect $v_1$ and $v_4$. So the length of $v_1-v_4$ is at least $k+1$. Thus, the length of $v_1-v_4$ is greated than the length of $v_1-v_2$ and $v_3-v_4$. This is a contradiction since these paths were of maximal length. Thus, the two paths must have a vertex in common.
+\end{exercise}
+
+\end{document}
