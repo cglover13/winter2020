@@ -85,8 +85,18 @@ P(b^1\mid a^1,e^1)&=\frac{P(b^1)P(a^1,e^1\mid b^1)}{P(b^0)P(a^1,e^1\mid b^0)+P(b
 
 \end{exercise}
 
-\begin{exercise}{3.}
-
+\begin{exercise}{3.6}
+\begin{enumerate}
+\item $P(t^1\mid d^1)=P(t^1)$ since $D$ is not a parent of $T$. Relevant trails are $D->C->T$ where $D$ has negative influence on $C$ and $C$ has positive influence on $T$.
+\item $P(d^1\mid t^0)=P(d^1)$ since $T$ is not a parent of $D$. Relevant trails are $D->C->T$ where $D$ has negative influence on $C$ and $C$ has positive influence on $T$.
+\item $P(h^1\mid e^1,f^1)=P(h^1\mid e^1)$ since $H$ is a parent of $E$ and not related to $F$. Relevant trails are $H-E-F$ where $H$ has a positive influence on $H$ and $F$ has a negative influence on $E$.
+\item $P(c^1\mid f^0)=P(c^1)$ since $F$ is not a parent of $C$. Relevant trails are $F-E-W-D-C$ and $F-E-H-D-C$ where $D$ has a negative influence on $C$, $D$ has a positive influence on $W$, $H$ has a positive influence on $D$, $H$ has a positive influence on $E$, $E$ has a positive influence on $W$, and $F$ has a negative influence on $E$.
+\item $P(c^1\mid h^0)=P(c^1)$ since $H$ is not a parent of $C$. Relevant trails are $H-D-C$ where $H$ has a positive influence on $D$ and $D$ has a negative influence on $C$.
+\item $P(c^1\mid h^0,f^0)=P(c^1\mid h^0)$ since $H$ and $F$ are not parents of $C$. Relevant trails are $F-E-W-D-C$ and $F-E-H-D-C$ and $H-D-C$ where $D$ has a negative influence on $C$, $D$ has a positive influence on $W$, $H$ has a positive influence on $D$, $H$ has a positive influence on $E$, $E$ has a positive influence on $W$, and $F$ has a negative influence on $E$.
+\item $P(d^1\mid h^1,e^0)=P(d^1\mid h^1)$ since $E$ is not a parent of $D$. Relevant trails are $H-D$ and $E-W-D$ and $E-H-D$ where $H$ has a positive influence on $D$, $E$ has a positive influence on $W$, $D$ has a positive influence on $W$, and $H$ has a positive influence on $E$.
+\item $P(d^1\mid e^1,f^0,w^1)=P(d^1\mid e^1,f^0)$ since $E, F$ and $W$ are not parents of $D$. Relevant trails are $F-E-W-D$ and $F-E-H-D$ where $F$ has a negative influence on $E$, $E$ has a positive influence on $D$, $D$ has a positive influence on $W$, $H$ has a positive influence on $E$ and $H$ has a positive influence on $D$.
+\item $P(t^1\mid w^1,f^0)=P(t^1\mid w^1)$ since $F$ is not a parent of $W$. Relevant trails are $F-E-W-D-C-T$ and $F-E-H-D-C-T$ where $F$ has a positive influence on $E$, $E$ has a positive influence on $W$, $D$ has a positive influence on $W$, $D$ has a negative influence on $C$, $C$ has a positive influence on $T$, $H$ has a positive influence on $D$ and $H$ has a positive influence on $E$.
+\end{enumerate}
 \end{exercise}
 
 \end{document}
