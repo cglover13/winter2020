@@ -1,0 +1,146 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/16/20\\
+Math 540
+\end{flushright}
+
+\begin{center}
+HW 7\\
+2.1.2,4,5,10\\
+2.2.3,7,10,13
+\end{center}
+
+\begin{exercise}{2.1.2}
+Let $x$ be a vector in a given vector space $X$. Then $0x=(\alpha-\alpha)x=\alpha x-\alpha x=\theta$ where $\alpha$ is a scalar. Further, $\alpha(\theta)=\alpha(0x)=(\alpha 0)x=0x=\theta$.
+
+Lastly, $(-1)x=(1-2)x=x-2x=-x$. 
+\end{exercise}
+
+\begin{exercise}{2.1.4}
+Which of the following subsets of $\mathbb{R}^3$ constitutes a subspace? (Here $x=(\xi_1,\xi_2,\xi_3)$)).
+\begin{enumerate}
+\item All $x$ with $\xi_1=\xi_2$ and $\xi_3=0$. Note that $\theta$ is in this space as it satisfies all properties therein. So the set is non-empty. Let $x,y$ be elements of this space where $x=(x_1,x_1,0)$ and $y=(y_1,y_2,0)$. Then for scalars $\alpha$ and $\beta$
+\[\alpha x+\beta y=(\alpha x_1+\beta y_1,\alpha x_2+\beta y_2,0).\]
+So this is a subspace.
+\item All $x$ with $\xi_1=\xi_2+1$. Note that the zero vector is not in this space so it cannot be a subspace.
+\item All $x$ with positive $\xi_1,\xi_2,\xi_3$. This cannot be a subspace since $-x$ is not in the space.
+\item All $x$ with $\xi_1-\xi_2+\xi_3=k$ where $k$ is some constant. Then we see $\theta$ is in this space since $0-0+0=0$. So $k=0$. Let $x=(x_1,x_2,x_3)$ and $y=(y_1,y_2,y_3)$ be in this space. Then for some $\alpha$ and $\beta$ scalars,
+\[\alpha x+\beta y=(\alpha x_1+\beta y_1,\alpha x_2+\beta y_2,\alpha x_3+beta y_3).\]
+We see that $\alpha x_1+\beta y_1-\alpha x_2-\beta y_2+\alpha x_3+\beta y_3=\alpha(x_1-x_2+x_3)+\beta(y_1-y_2+y_3)=\alpha(0)+\beta(0)=0$. So this is a subspace when $k=0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2.1.5}
+Consider $\{x_1,...,x_n\}$ where $x_j(t)=t^j$ in the space $C[a,b]$. Assume that
+\[\alpha_1 x_1+\dotsb+\alpha_n x_n=0.\]
+Then applying $t$ to the function finds
+\begin{align}
+(\alpha_1 x_1+\dotsb+\alpha_n x_n)(t)&=0(t)\\
+\alpha_1 x_1(t)+\dotsb+\alpha_n x_n(t)&=0\\
+\alpha_1 t+\alpha_2 t^2+\dotsb \alpha_n t^n&=0.
+\end{align}
+Since $t$ is not necessarily 0, this is only true is each $\alpha_i$ is zero. Hence, $\{x_1,...,x_n\}$ is linearly independent.
+\end{exercise}
+
+\begin{exercise}{2.1.10}
+Let $Y$ and $Z$ be subspaces of a vector space $X$. Thus, $0\in Y$ and $0\in Z$. So $Y\cap Z$ is non-empty. Let $y,z\in Y\cap Z$ and $\alpha$ and $\beta$ be scalars. Then $\alpha y+\beta z\in Y$ since both $\alpha y$ and $\beta z$ are in $Y$ and $Y$ is a subspace. Similarly, $\alpha y+\beta z\in Z$. So $\alpha y+\beta z\in Y\cap Z$. So $Y\cap Z$ is a subspace.
+
+Let $Y$ be the subspace of the form $x=(x_1,2x_1)$ in $\mathbb{R}^2$ and let $Z$ be the subspace of the form $y=(3y_2,y_2)$. Then both $x$ and $y$ as defined are in the union of $Y$ and $Z$. However, $x+y=(x_1+3y_2,2x_1+y_2)$ which is neither $Y$ or $Z$ and thus not in $Y\cup Z$. So $Y\cup Z$ is not a vector space.
+
+However, considering $Y\cap Z$ in the example above, we get that $Y\cap Z=\{\theta\}$ which is a vector space.
+\end{exercise}
+
+\begin{exercise}{2.2.3}
+Let $x,y$ be vectors in a vector space $X$. Then
+\begin{align}
+|\|y\|-\|x\||&=\|y-x+x\|-\|x-y+y\|\\
+&\leq\|y-x\|+\|x\|-\|x\|-\|y-y\|\\
+&=\|y-x\|,
+\end{align}
+by the triangle inequality.
+\end{exercise}
+
+\begin{exercise}{2.2.7}
+We verify that $\|x\|\Bigl(\sum_{j=1}^\infty|\xi_j|^p\Bigr)^{1/p}$.
+\begin{enumerate}
+\item Note that $|\xi_j|$ is non-negative since it is an absolute value. Non-negative numbers raised to a power are still non-negative. The sum of non-negative numbers is non-negative. The the $p^{th}$ root of a non-negative number is non-negative. Hence $\|x\|\geq 0$.
+
+\item Assume that $\|x\|=0$. So 
+\begin{align}
+0&=\|x\|\\
+&=\Bigl(\sum_{j=0}^\infty|\xi_j|^p\Bigr)^{1/p}\\
+0^p&=0\\&=\sum_{j=0}^\infty|\xi_j|^p
+\end{align}
+Then since all the numbers in the sum are non-negative, the only way the summation is zero is if every $\xi_j$ is 0. Hence, $x=0$.
+
+Now assume that $x=0$. Then 
+\begin{align}
+\|x\|&=\Bigl(\sum_{j=1}^\infty|\xi_j|^p\Bigr)^{1/p}\\
+&=\Bigl(\sum_{j=1}^\infty 0\Bigr)^{1/p}\\
+&=0.
+\end{align}
+So condition 2 is satisfied.
+
+\item \begin{align}
+\|\alpha x\|&=\Bigl(\sum_{j=0}^\infty|\alpha\xi_j|^p\Bigr)^{1/p}\\
+&=\Bigl(\sum_{j=0}^\infty|\alpha|^p|\xi_j|^p\Bigr)^{1/p}\\
+&=\Bigl(|\alpha|^p\sum_{j=0}^\infty|\xi_j|^p\Bigr)^{1/p}\\
+&=\Bigl(|\alpha|^p\Bigr)^{1/p}\Bigl(\sum_{j=0}^\infty|\xi_j|^p\Bigr)^{1/p}\\
+&=|\alpha|\Bigl(\sum_{j=0}^\infty|\xi_j|^p\Bigr)^{1/p}\\
+&=|\alpha|\|x\|.
+\end{align}
+
+\item Let $x=(x_i)$ and $y=(y_i)$ be element of the vector space. Then
+\begin{align}
+\|x+y\|&=\Bigl(\sum_{j=0}^\infty|x_j+y_j|^p\Bigr)^{1/p}\\
+&\leq\Bigl(\sum_{j=0}^\infty|x_j|^p+|y_j|^p\Bigr)^{1/p}\\
+&\leq\Bigl(\sum_{j=0}^\infty|x_j|^p+\sum_{j=0}^\infty|y_j|^p\Bigr)^{1/p}\\
+&\leq\Bigl(\sum_{j=0}^\infty|x_j|^p\Bigr)^{1/p}+\Bigl(\sum_{j=0}^\infty|y_j|^p\Bigr)^{1/p}\\
+&=\|x\|+\|y\|.
+\end{align}
+\end{enumerate}
+So $\|x\|$ is a norm.
+\end{exercise}
+
+\begin{exercise}{2.2.10}
+The sphere
+\[S(0;1)=\{x\in X\mid\|x\|=1\}\]
+in a normed space is called the unit sphere.
+\begin{enumerate}
+\item If $\|x\|=\|x\|_1$, then $x\in S(0;1)$ when $|x_1|+|x_2|=1$. This happens on the lines $x_2=-x_1+1,x_2=x_1+1,x_2=-x_1-1,x_2=x_1-1$. These are the lines drawn in the picture.
+
+\item If $\|x\|=\|x\|_2$, then $x\in S(0;1)$ when $(|x_1|^2+|x_2|^2)^{1/2}=1$. This happens when $|x_1|^2+|x_2|^2=1$. This is true for the unit circle (that is the lines $x_2=-\sqrt{x_1}+1,x_2=\sqrt{x_1}-1$.
+
+\item If $|x\|=\|x\|_\infty$, the $x\in S(0;1)$ if $\max\{|x_1|,|x_2|\}=1$. This is true for the lines $x_2=\pm 1$ and $x_1=\pm 1$.
+
+\item If $\|x\|=\|x\|_4$, then $x\in S(0;1)$ if $x_1^4+x_2^4=1$. This is true for the equations $x_2=-x_1^{1/4}+1$ and $x_2=x_1^{1/4}+1$. This is the circle shown below.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2.2.13}
+Let $x,y$ be in a discrete metric space $X$ where $\alpha x=\alpha y$
+\end{exercise}
+
+\end{document}
