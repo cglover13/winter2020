@@ -1,0 +1,50 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/16/20\\
+Math 540
+\end{flushright}
+
+\begin{center}
+\textbf{HW 1.6.1,4,10,12}
+\end{center}
+
+\begin{exercise}{1.6.1}
+Let $M\subset Y$ where $Y$ is a metric space. Assume that $M$ has finitely many points. Let $d^*=\min_{x,y\in M,x\neq y}d(x,y)$. Let $(x_n)$ be a Cauchy sequence in $M$. Then for $\epsilon>0$, there exists an $N$ such that $d(x_n,x_m)<\epsilon$ for $m,n>N$. Choose $\epsilon=\frac{d^*}{2}$. Since the minimum distance between any distinct points is $d^*$, and $d(x_n,x_m)<\frac{d^*}{2}$ for all $m,n>N$, this means that $x_n=x_m$ for all $m,n>N$. Thus, $(x_n)$ converges to $x_m$. So $M$ is complete.
+\end{exercise}
+
+\begin{exercise}{1.6.4}
+Let $X_1$ and $X_2$ be isometric metric spaces and let $X_1$ be complete. Let $T\colon X_2\rightarrow X_1$ be an isometry. Let $(x_n)\in X_2$ be a Cauchy sequence. Then for $\epsilon>0$, there exists an $N$ such that $d(x_n,x_m)<\epsilon$ for all $m,n>N$. Since $T$ is an isometry, then $d(Tx_n,Tx_m)<\epsilon$. So $(Tx_n)$ is a Cauchy sequence in $X_1$. Since $X_1$ is complete, there exists a $Tx\in X_1$ such that $(Tx_n)$ converges to $Tx$ (where $x\in X_2$). We note that every element in $X_1$ can be written as $Ty$ where $y\in X_2$ since $T$ is bijective. So there exists an $\epsilon^*$ such that $d(Tx_n,Tx)<\epsilon^*$. Since $T$ is an isometry, $d(x_n,x)<\epsilon^*$. So $(x_n)$ converges to $x$. So $X_2$ is complete.
+\end{exercise}
+
+\begin{exercise}{1.6.10}
+Let $(x_n)$ and $(x_n')$ be convergent sequences in a metric space in a metric space $(X,d)$ and have the same limit $l$. Thus for $\epsilon>0$, there exists an $N$ such that when $n>N$, $d(x_n,x)<\frac{\epsilon}{2}$. There exists an $N'$ such that when $n'>N'$, $d(x_n',x)<\frac{\epsilon}{2}$. Then we see that $d(x_n,x_n')\leq d(x_n,x)+d(x,x_n')<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$ by the triangle inequality for $n,n'>\max(N,N')$. Thus, $\lim_{n\rightarrow\infty}d(x_n,x_n')=0$.
+\end{exercise}
+
+\begin{exercise}{1.6.12}
+Let $(x_n)$ be a Cauchy sequence in $(X,d)$ and let $(x_n')$ be such that $\lim_{n\rightarrow\infty}d(x_n,x_n')=0$. Then for $\epsilon>0$, there exists $N$ such that $n,m>N$ $d(x_n,x_m)<\frac{\epsilon}{3}$. There exists an $N'$ such that when $n,n'>N'$, $d(x_n,x_n')<\frac{\epsilon}{3}$. And there exists an $N''$ such that when $m,m'>N''$, $d(x_m,x_m')<\frac{\epsilon}{3}$. So for $m,m',n,n'>\max(N,N'N'')$,
+\[d(x_n',x_m')\leq d(x_n',x_n)+d(x_n,x_m)+d(x_m,x_m')\leq\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\epsilon.\]
+\end{exercise}
+
+\end{document}
