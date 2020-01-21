@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/16/20\\
+Math 540
+\end{flushright}
+
+\begin{center}
+HW 8\\
+2.3.3,8,10\\
+2.4.2,4,6
+\end{center}
+
+\begin{exercise}{2.3.3}
+Let $X$ be $l^\infty$ and let $Y$ be the subset of all sequences with only finitely many nonzero terms. We first show that $Y$ is a subspace of $l^\infty$. We first note that the zero sequence has no nonzero terms, and thus is in $Y$. So $Y$ is nonempty.  Let $x=(x_i)$ and $y=(y_i)$ be elements of $Y$. Let $x_n$ be the last nonzero term of $x$ and let $y_m$ be the last nonzero term of $y$. Then $\alpha x+\beta y$ has a last nonzero term at either $n$ or $m$ ($\alpha x_n$ or $\beta y_m$ respectively). Thus, $x+y\in Y$. So $Y$ is a subspace.
+
+However consider the sequence $x_n=(1,1,0,...)$ where the first $n$ entries of each tuple is 1 and the rest are zero. Then for $\epsilon>0$, there exists an $N$ such that when $n>N$, $\|x_n-(1,1,1,...)\|\leq\epsilon$. Since $(1,1,1,...)\notin Y$, we see that $Y$ is not closed, and thus is not a closed subspace.
+\end{exercise}
+
+\begin{exercise}{2.3.8}
+Let $X$ be a normed space where absolute convergence implies convergence. Let $(x_n)\in X$ be a Cauchy sequence. Then for $\epsilon>0$, there exists an $N$ such that when $m,n>N$, then $\|x_n-x_m\|<\epsilon$. So for some $x\in X$ and $\epsilon'>0$, then there exists an $N$ such that when $n>N$,
+\begin{align}
+\|x_n-x\|&=\|x_n-x_m+x_m-x\|\\
+&\leq\|x_n-x_m\|+\|x_m-x\|
+\end{align}
+\end{exercise}
+
+\end{document}
