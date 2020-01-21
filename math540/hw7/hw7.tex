@@ -61,7 +61,10 @@ Then applying $t$ to the function finds
 \alpha_1 x_1(t)+\dotsb+\alpha_n x_n(t)&=0\\
 \alpha_1 t+\alpha_2 t^2+\dotsb \alpha_n t^n&=0.
 \end{align}
-Since $t$ is not necessarily 0, this is only true is each $\alpha_i$ is zero. Hence, $\{x_1,...,x_n\}$ is linearly independent.
+By way of contradiction, assume that not all $\alpha_i$ are 0 for some $t^*$. Then
+\[\alpha_1t^*+\alpha_2(t^*)^2+\dotsb+\alpha_n(t^*)^n=0.\]
+Solving for $\alpha_1$, we get that $\alpha_1=-(\sum_{i=1}^{n-1}\alpha_{i+1}(t^*)^i$. However, then $\alpha_1$ has a different value for a different $t$. Since the constants $\alpha_i$ cannot change, this is a contradiction.
+Hence, $\{x_1,...,x_n\}$ is linearly independent.
 \end{exercise}
 
 \begin{exercise}{2.1.10}
