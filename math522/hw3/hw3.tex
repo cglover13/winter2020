@@ -38,27 +38,27 @@ By definition 3.6, this is only possible if for the trail $X\rightleftharpoons X
 So there does not exist an active trail between $X$ and $Y$, hence $X$ and $Y$ are d-separated given $Z$. Since $X,Y$ and $Z$ are general, we see every locally independency is represented in $\mathscr{I}(\mathscr{G})$. So global independencies imply local independencies.
 \end{exercise}
 
-\begin{exercise}{3.11a}
-Let $\mathscr{B}$ be the burglary alarm network from fig 3.15. Consider the marginal distribution $P_\mathscr{B}(B,E,T,N,J,M)$. We construct the diagram
-\begin{center}
-\begin{tikzpicture}[node distance=3cm, thick ]
-\node[draw](B) {Burglary};
-\node[draw](E) [right of = B] {Earthquake};
-\node(S) [below of= B] {};
-\node(S') [below of =E] {};
-\node[draw](T) [left of =S] {TV};
-\node[draw](N) [right of = S'] {Nap};
-\node[draw](J) [below of = S] {JohnCall};
-\node[draw](M) [below of = S'] {MaryCall};
-
-\draw[->](T)--(J);
-\draw[->](N)--(M);
-\draw[->](B)--(E);
-\draw[->](E)--(J);
-\draw[->](E)--(M);
-\end{tikzpicture}
-\end{center}
-\end{exercise}
+%\begin{exercise}{3.11a}
+%Let $\mathscr{B}$ be the burglary alarm network from fig 3.15. Consider the marginal distribution $P_\mathscr{B}(B,E,T,N,J,M)$. We construct the diagram
+%\begin{center}
+%\begin{tikzpicture}[node distance=3cm, thick ]
+%\node[draw](B) {Burglary};
+%\node[draw](E) [right of = B] {Earthquake};
+%\node(S) [below of= B] {};
+%\node(S') [below of =E] {};
+%\node[draw](T) [left of =S] {TV};
+%\node[draw](N) [right of = S'] {Nap};
+%\node[draw](J) [below of = S] {JohnCall};
+%\node[draw](M) [below of = S'] {MaryCall};
+%
+%\draw[->](T)--(J);
+%\draw[->](N)--(M);
+%\draw[->](B)--(E);
+%\draw[->](E)--(J);
+%\draw[->](E)--(M);
+%\end{tikzpicture}
+%\end{center}
+%\end{exercise}
 
 \begin{exercise}{3.14}
 Let $\mathscr{G}$ be the Bayesian network, $X$ the source variable, and $\mathbf{Z}$ be the observations on the network. We want to find all the nodes reachable from $X$ given $\mathbf{Z}$ via active trails. This means we want all the trails from $X$ to $Y$ (where $Y$ is arbitrary) which only have a v-structure $X_{i-1}\rightarrow X_i\leftarrow X_{i+1}$ if $X_i$ or a descendant of $X_i$ is in $Z$. This means there are 3 cases:
@@ -100,8 +100,6 @@ Hence we can find every trail with this algorithm.
 \end{exercise}
 
 \begin{exercise}{3.16}
-Let $\mathscr{G}_1$ and $\mathscr{G}_2$ be two graphs over $\mathscr{X}$. Assume that $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same skeleton and v-structures. Let $(X\perp Y\mid Z)$ be a conditional independency in $\mathscr{I}(\mathscr{G}_1).$ Thus, $X$ and $Y$ are d-seperated given $Z$ by Theorem 3.4. D-separation presents itself as a v-structure in $\mathscr{G}_1$. Since $\mathscr{G}_2$ has the same skeleton and v-structure as $\mathscr{G}_1$, then $(X\perp Y\mid Z)\in\mathscr{I}(\mathscr{G}_2)$. Further, consider two variables $N$ and $M$ that are not d-separated. Then they are dependent in all distributions. This will be maintained since $\mathscr{G}_1$ and $\mathscr{G}_2$ has the same skeleton. So $\mathscr{I}(\mathscr{G}_1)\subset\mathscr{I}(\mathscr{G}_2)$.
-
-By an identical proof, $\mathscr{I}(\mathscr{G}_2)\subset\mathscr{I}(\mathscr{G}_1)$. Hence, $\mathscr{I}(\mathscr{G}_1)=\mathscr{I}(\mathscr{G}_2)$.
+Let $\mathscr{G}_1$ and $\mathscr{G}_2$ be two graphs over $\mathscr{X}$. Assume that $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same skeleton and v-structures. Let $(X\perp Y\mid Z)$ be a conditional independency in $\mathscr{I}(\mathscr{G}_1).$ Thus, $X$ and $Y$ are d-seperated given $Z$ by Theorem 3.4. D-separation means there is not an active trail between $X$ and $Y$. This means that every v-structure passed through must have the center node or one of its descendants is in $Z$. Otherwise is does not pass through an observation. Since $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same v-structures, a trail between $X$ and $Y$ on $\mathscr{G}_2$ with v-structures will also have the center node as an observation if it was the center node in the v-structure in $\mathscr{G}_1$. If one of its descendants was a observation in $\mathscr{G}_1$, it must also be a descendant of the center node in $\mathscr{G}_2$, since if it was not, it would create a new v-structure which is a contradiction. Further, since all skeletons are the same, the rest of the trail must not have any other observations in $\mathscr{G}_2$ since they were not in the trail in $\mathscr{G}_1$. Thus, the trail from $X$ to $Y$ in $\mathscr{G}_2$ is active. 
 \end{exercise}
 \end{document}
