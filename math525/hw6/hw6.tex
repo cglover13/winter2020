@@ -35,7 +35,21 @@ A
 \end{exercise}
 
 \begin{exercise}{2}
+\begin{enumerate}
+\item Recall from previous homework that $A\mathbf{1}=\mathbf{k}$ where $\mathbf{k}$ is the degree vector. Assume that every node has degree $k$. Then $\mathbf{k}=k\mathbf{1}$. So $A\mathbf{1}=k\mathbf{1}$. So $\mathbf{1}$ is an eigenvector of $A$.
+\item We want to find $\mathbf{x}$ such that $\mathbf{x}=\alpha A\mathbf{x}+\beta\mathbf{1}$.
+Let $\mathbf{x}=\frac{\beta}{1-\alpha k}\mathbf{1}$. Then
+\begin{align}
+\alpha A(\frac{\beta}{1-\alpha k})\mathbf{1}+\beta\mathbf{1}&=\frac{\alpha\beta}{1-\alpha k}A\mathbf{1}+\beta\mathbf{1}\\
+&=\frac{k\alpha\beta}{1-\alpha k}+\beta\mathbf{1}\\
+&=\frac{k\alpha\beta+\beta-\beta\alpha k}{1-\alpha k}\mathbf{1}\\
+&=\frac{\beta}{1-\alpha k}\mathbf{1}\\
+&=\mathbf{x}.
+\end{align}
+So the Katz centrality is $\mathbf{x}=\frac{\beta}{1-\alpha k}\mathbf{1}$.
 
+\item Betweenness centrality
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}{3}
@@ -52,7 +66,7 @@ $\alpha=.3: c(1)=.128, c(2)=.210, c(3)=.196, c(4)=.151, c(5)=.158, c(6)=.158$.
 
 $\alpha=.5: c(1)=.124, c(2)=.241, c(3)=.207, c(4)=.140, c(5)=.149, c(6)=.149$.
 
-As $\alpha$ increases, the importance of the most connectted nodes increases more and the less connected nodes goes down more.
+As $\alpha$ increases, the importance of the most connected nodes increases more and the less connected nodes goes down more.
 \end{enumerate}
 \end{exercise}
 
