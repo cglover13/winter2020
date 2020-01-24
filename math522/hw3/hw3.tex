@@ -28,7 +28,7 @@ Math 522
 
 \begin{center}
 HW 3\\
-3.10,3.11a,3.14,3.15
+3.10,3.14,3.15,3.16
 \end{center}
 
 \begin{exercise}{3.10}
@@ -100,6 +100,6 @@ Hence we can find every trail with this algorithm.
 \end{exercise}
 
 \begin{exercise}{3.16}
-Let $\mathscr{G}_1$ and $\mathscr{G}_2$ be two graphs over $\mathscr{X}$. Assume that $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same skeleton and v-structures. Let $(X\perp Y\mid Z)$ be a conditional independency in $\mathscr{I}(\mathscr{G}_1).$ Thus, $X$ and $Y$ are d-seperated given $Z$ by Theorem 3.4. D-separation means there is not an active trail between $X$ and $Y$. This means that every v-structure passed through must have the center node or one of its descendants is in $Z$. Otherwise is does not pass through an observation. Since $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same v-structures, a trail between $X$ and $Y$ on $\mathscr{G}_2$ with v-structures will also have the center node as an observation if it was the center node in the v-structure in $\mathscr{G}_1$. If one of its descendants was a observation in $\mathscr{G}_1$, it must also be a descendant of the center node in $\mathscr{G}_2$, since if it was not, it would create a new v-structure which is a contradiction. Further, since all skeletons are the same, the rest of the trail must not have any other observations in $\mathscr{G}_2$ since they were not in the trail in $\mathscr{G}_1$. Thus, the trail from $X$ to $Y$ in $\mathscr{G}_2$ is active. 
+Let $\mathscr{G}_1$ and $\mathscr{G}_2$ be two graphs over $\mathscr{X}$. Assume that $\mathscr{G}_1$ and $\mathscr{G}_2$ have the same skeleton and v-structures. Let $(X\perp Y\mid Z)$ be a conditional independence in $\mathscr{I}(\mathscr{G}_1)$ given $X$ and $Y$ are d-seperated given $Z$. D-separation means there is not an active trail between $X$ and $Y$ in $\mathscr{G}_1$. This means that there is an observation in the trail between $X$ and $Y$ that is not the center node (or descendant of one) of a v-structure of $\mathscr{G}_1$. Since all the v-structures are the same in $\mathscr{G}_2$, we know that the center node of any v-structure in the trail between $X$ and $Y$ in $\mathscr{G}_2$ is not an observation. Further, neither is one of the descendants, because if it was, it would create a v-structure in $\mathscr{G}_2$ that is not in $\mathscr{G}_1$. However, since the skeleton of $\mathscr{G}_1$ and $\mathscr{G}_2$ are the same, there does exist an observation on the trail between $X$ and $Y$ in $\mathscr{G}_2$. Thus, there does not exist an active trail between $X$ and $Y$ in $\mathscr{G}_2$. So $X$ and $Y$ are d-separated in $\mathscr{G}_2$. Further, since $X\perp Y\mid Z$ in $\mathscr{G}_1$, then must be independent given $Z$ in $\mathscr{G}_2$ since the skeleton is the same and $Z$ must be between $X$ and $Y$ without being in a v-structure. So $(X\perp Y\mid Z)\in\mathscr{I}(\mathscr{G}_2)$. So $\mathscr{I}(\mathscr{G}_1)\subseteq\mathscr{I}(\mathscr{G}_2)$. By the exact same argument, $\mathscr{I}(\mathscr{G}_2)\subseteq\mathscr{I}(\mathscr{G}_1)$. So $\mathscr{I}(\mathscr{G}_1)=\mathscr{I}(\mathscr{G}_2)$.
 \end{exercise}
 \end{document}
