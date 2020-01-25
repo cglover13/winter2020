@@ -40,7 +40,7 @@ Let $X$ be a compact metric space and that $M\subset X$ is closed. Let $(x_n)\in
 \end{exercise}
 
 \begin{exercise}{2.5.10}
-Let $X$ and $Y$ be metric spaces. Let $X$ be compact and let $T\colon X\rightarrow Y$ be bijective and continous. We want to show that $T$ is a homeomorphism (that is $T$ has a continuous inverse). Note that since $X$ is compact, $T(X)$ is compact and therefore $Y$ is compact since $T$ is bijective. Consider the function $T^{-1}$. Let $(y_n)$ be a sequence in $Y$. Since $Y$ is compact, there exists a convergent subsequence $(y_{n_k})$ which converges to some $y$. Then for $\epsilon>0$, there exists $k>N$ such that $\|y_{n_k}-y\|<\epsilon$. Since $T$ is bijective, we know then there exists a convergent subsequence $(x_{n_k})$ such that $(y_{n_k})=T((x_{n_k}))$ and $y=T(x)$. So $\|T((x_{n_k}))-T(x)\|<\epsilon.$
+Let $X$ and $Y$ be metric spaces. Let $X$ be compact and let $T\colon X\rightarrow Y$ be bijective and continous. We want to show that $T$ is a homeomorphism (that is $T$ has a continuous inverse). Consider the function $T^{-1}$. Let $x,x_0\in X$ such that for every $\epsilon>0$, $d(x,x_0)<\epsilon$. Since $X$ is compact, there exists some sequence $(x_n)$ where $x,x_0\in(x_n)$ which has a convergent subsequence (namely $(x,x_0)$). We write $x=T^{-1}(y)$ and $x_0=T^{-1}(y_0)$ for some $y,y_0\in Y$, since $T$ is bijective. Since $T$ is continuous, $T(T^{-1}(y),T^{-1}(y_0))$ maps to some subsequence $(y_n,y_0)$ which converges. So $d(y_n,y_0)<\delta$ for some $\delta$. Thus, $T^{-1}$ is continuous. 
 \end{exercise}
 
 \end{document}
