@@ -1,0 +1,55 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/25/20\\
+Math 525
+\end{flushright}
+
+\begin{exercise}{1}
+C
+\end{exercise}
+
+\begin{exercise}{2}
+B
+\end{exercise}
+
+\begin{exercise}{3}
+\begin{enumerate}
+\item 7.3
+\begin{enumerate}
+\item Consider Katz centrality $\mathbf{x}=\alpha A\mathbf{x}+\mathbf{1}$. Solving we get $(I-\alpha A)\mathbf{x}=\mathbf{1}$. If we can take an inverse (which we can with probability 1), we get that $\mathbf{x}=(I-\alpha A)^{-1}\mathbf{1}$. We then see we have a geometric series. So
+\begin{align}
+\mathbf{x}&=\Bigl(\sum_{i=0}^\infty (\alpha A)^r\Bigr)\mathbf{1}\\
+&=\mathbf{1}+\alpha A\mathbf{1}+\alpha^2A^2\mathbf{1}+\dotsb.
+\end{align}
+
+\item Recall that $A\mathbf{1}=\mathbf{k}$. So we have that $\mathbf{x}=\mathbf{1}+\alpha\mathbf{k}+\alpha^2 A\mathbf{k}+\dotsb$. Thus, we get that $\mathbf{x}=\mathbf{1}+(\sum_{i=0}^\infty\alpha^{i+1} A^{i})\mathbf{k}=\mathbf{1}+\alpha(\sum_{i=0}^\infty\alpha^i A^i)\mathbf{k}=\mathbf{1}+\frac{\alpha}{I-\alpha A}\mathbf{k}$. Solving for $\mathbf{k}$ we get
+\begin{align}
+\frac{I-\alpha A}{\alpha}(\mathbf{x}-\mathbf{1})&=\mathbf{k}
+\end{align}
+\end{enumerate}
+\item 7.5: 
+\end{enumerate}
+\end{exercise}
+\end{document}
