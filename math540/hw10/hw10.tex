@@ -37,7 +37,62 @@ For all the operations, the range and domain are both over the reals. It suffice
 \item Consider the operator $T(x_1,x_2)=(x_1)$. Then for some $\alpha,\beta\in\mathbb{R}$,
 \begin{align}
 T(\alpha(x_1,x_2)+\beta(y_1,y_2))&=T((\alpha x_1,\alpha x_2)+(\beta y_1,\beta y_2))\\&=T(\alpha x_1 + \beta y_1,\alpha x_2+\beta y_2)\\&=(\alpha x_1+\beta y_1,0)\\&=(\alpha x_1,0)+(\beta y_1,0)\\&=\alpha(x_1,0)+\beta(y_1,0)\\&=\alpha T(x_1,x_2)+\beta T(y_1,y_2).\end{align}
+So $T$ is linear.
+
+\item Consider the operator $T(x_1,x_2)=(0,x_2)$. Then for some $\alpha,\beta\in\mathbb{R}$,
+\begin{align}
+T(\alpha(x_1,x_2)+\beta(y_1,y_2))&=T((\alpha x_1,\alpha x_2)+(\beta y_1,\beta y_2))\\&=T(\alpha x_1 + \beta y_1,\alpha x_2+\beta y_2)\\&=(0,\alpha x_2+\beta y_2)\\&=(0,\alpha x_2)+(0,\beta y_2)\\&=\alpha(0,x_2)+\beta(0,y_2)\\&=\alpha T(x_1,x_2)+\beta T(y_1,y_2).\end{align}
+So $T$ is linear.
+
+\item Consider the operator $T(x_1,x_2)=(x_2,x_1)$. Then for some $\alpha,\beta\in\mathbb{R}$,
+\begin{align}
+T(\alpha(x_1,x_2)+\beta(y_1,y_2))&=T((\alpha x_1,\alpha x_2)+(\beta y_1,\beta y_2))\\
+&=T(\alpha x_1+\beta y_1,\alpha x_2+\beta y_2)\\
+&=(\alpha x_2+\beta y_2,\alpha x_1+\beta y_1)\\
+&=(\alpha x_2,\alpha x_1)+(\beta y_2,\beta y_1)\\
+&=\alpha (x_2,x_1)+\beta (y_2,y_1)\\
+&=\alpha T(x_1,x_2)+\beta T(y_1,y_2).
+\end{align}
+So $T$ is linear.
+
+\item Consider the operator $T(x_1,x_2)=(\gamma x_1,\gamma x_2)$. Then for some $\alpha,\beta\in\mathbb{R}$,
+\begin{align}
+T(\alpha(x_1,x_2)+\beta(y_1,y_2))&=T((\alpha x_1,\alpha x_2)+(\beta y_1,\beta y_2))\\
+&=T(\alpha x_1+\beta y_1,\alpha x_2+\beta y_2)\\
+&=(\gamma(\alpha x_1+\beta y_1),\gamma(\alpha x_2+\beta y_2))\\
+&=(\gamma\alpha x_1+\gamma\beta y_1,\gamma\alpha x_2+\gamma\beta y_2)\\
+&=(\gamma\alpha x_1,\gamma\alpha x_2)+(\gamma\beta y_1,\gamma\beta y_2)\\
+&=\alpha(\gamma x_1,\gamma x_2)+\beta(\gamma y_1,\gamma y_2)\\
+&=\alpha T(x_1,x_2)+\beta T(y_1,y_2).
+\end{align}
+So $T$ is linear.
 \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2.6.3}
+\begin{enumerate}
+\item $D(T_1)=\mathbb{R}^2$, $R(T_1)=\{(x,0)\colon x\in\mathbb{R}\}$, $N(T_1)=\{(0,x)\colon x\in\mathbb{R}\}$.
+\item $D(T_2)=\mathbb{R}^2$, $R(T_2)=\{(0,x)\colon x\in\mathbb{R}\}, N(T_2)=\{(x,0)\colon x\in\mathbb{R}\}$.
+\item $D(T_3)=R(T_3)=\mathbb{R}^2$, $N(T_3)=\{(0,0)\}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2.6.14}
+Let $T\colon X\rightarrow Y$ be a linear operator and $dim(X)=dim(Y)=n<\infty$. Assume that $R(T)=Y$. Thus, $T$ is onto. So for every $y\in Y$, there exists $x\in X$ such that $T(x)=y$. We now show that $T$ is injective. Assume that $y=y^*$. Since $Y$ has dimension $n$, we know there exists a basis such that
+\[y=\alpha_1y_1+\dotsb+\alpha_nx_n.\]
+We also know that $y^*$ has the same decomposition. So 
+\begin{align}
+y&=y^*\\
+\alpha_1y_1+\dotsb+\alpha_ny_n&=\alpha_1y_1+\dotsb+\alpha_ny_n.
+\end{align}
+We then know each $y_1$ can be written as $T(x_1)$. So
+\begin{align}
+\alpha_1T(x_1)+\dotsb\alpha_nT(x_n)&=\alpha_1T(x_1)+\dotsb\alpha_nT(x_n)\\
+T(\alpha_1x_1+\dotsb+\alpha_nx_n)&=T(\alpha_1x_1+\dotsb+\alpha_nx_n).
+\end{align}
+Since the decompostion of the domain values mapping to $y$ and $y^*$ are the same, we know that $x=x^*$ where $T(x)=y$ and $T(x^*)=y^*$. So $T$ is injective. Thus, $T$ is bijective and an inverse exists.
+
+Now assume that $T^{-1}$ exists. Then $dim(D(T^{-1})=n<\infty$. Clearly $T$ exists and $(T^{-1})^{-1}=T$. Then by Theorem 2.6-10, we know that $dim(D(T^{-1}))=n$. Since $T^{-1}$ takes on values from $Y$, and $dim(Y)=n$, then $D(T^{-1})=Y$. Note that $R(T)=D(T^{-1})$. So $R(T)=Y$.
 \end{exercise}
 
 \end{document}
