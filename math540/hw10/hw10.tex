@@ -90,9 +90,9 @@ We then know each $y_1$ can be written as $T(x_1)$. So
 \alpha_1T(x_1)+\dotsb\alpha_nT(x_n)&=\alpha_1T(x_1)+\dotsb\alpha_nT(x_n)\\
 T(\alpha_1x_1+\dotsb+\alpha_nx_n)&=T(\alpha_1x_1+\dotsb+\alpha_nx_n).
 \end{align}
-Since the decompostion of the domain values mapping to $y$ and $y^*$ are the same, we know that $x=x^*$ where $T(x)=y$ and $T(x^*)=y^*$. So $T$ is injective. Thus, $T$ is bijective and an inverse exists.
+Since the decompostion of the domain values mapping to $y$ and $y^*$ are the same, we know that $x=x^*$ where $T(x)=y$ and $T(x^*)=y^*$. So $T$ is injective. Thus, $T$ is bijective and an inverse exists by Theorem 2.6-10 (since $Tx=0\Rightarrow x=0$ by injectivity).
 
-Now assume that $T^{-1}$ exists. Then $dim(D(T^{-1})=n<\infty$. Clearly $T$ exists and $(T^{-1})^{-1}=T$. Then by Theorem 2.6-10, we know that $dim(D(T^{-1}))=n$. Since $T^{-1}$ takes on values from $Y$, and $dim(Y)=n$, then $D(T^{-1})=Y$. Note that $R(T)=D(T^{-1})$. So $R(T)=Y$.
+Now assume that $T^{-1}$ exists. Note that $D(T)=X$, (by page 83), so $dim(D(T))=n$. Since $T^{-1}$ exists, $Tx=0\Rightarrow x=0$. Thus, $T$ is injective. Since $dim(R(T))\leq n$ since $dim(Y)=n$, and $T$ is injective, $dim(R(T))=dim(Y)=n$. Since $R(T)\subseteq Y$, and their dimensions are equal, then $R(T)=Y$.
 \end{exercise}
 
 \end{document}
