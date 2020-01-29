@@ -1,0 +1,51 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/28/20\\
+Math 525
+\end{flushright}
+
+\begin{center}
+HW 8
+\end{center}
+
+\begin{exercise}{1}
+Consider a network of $n$ nodes in a ring where $n$ is odd. We calculate the closeness centrality of a given node. Note that there are two nodes with distance 1 from a given node, 2 nodes with distance 2, up until 2 nodes with distance $\frac{n-1}{2}$. Thus, $C_i=\frac{n}{\sum_{j}d_{ij}}=\frac{n}{2\sum_{i=1}^{(n-1)/2}i}=\frac{n}{2(\frac{1}{8}(n-1)(n+1)}=\frac{4n}{(n-1)(n+1)}=\frac{4n}{n^2-1}$.
+\end{exercise}
+
+\begin{exercise}{2}
+The closeness centrality of each node is $\frac{2}{3}$.
+\end{exercise}
+
+\begin{exercise}{3}
+Consider an undirected tree of $n$ nodes. Suppose that a particular node $x$ in the tree has degree $k$, so that its removal would divide the tree into $k$ disjoint regions, and suppose that the sizes of those regions are $n_1,...,n_k$. 
+\begin{enumerate}
+\item We know that $x$ is on the shortest path between any nodes from one disjoint region to nodes of another disjoint region. This means it is not on the shortest path for any nodes in the same disjoint region. Since each region has $n_i$ nodes, and there are $n_i$ choices for the first node and $n_i$ choices for the second node for a shortest path within the same region, 
+$x$ is not on the shortest path for $\sum_{i=1}^kn_i^2$. It must be on every other shortest path (since the regions are disjoint). We know that there are $n^2$ total paths in the network (since there are $n$ choices for the starting node and $n$ choices for the ending node). Thus, the between centrality for $x$ is $n^2-\sum_{i=1}^kn_i^2$.
+
+\item Thus the betweenness of the $i^{th}$ node would be $n^2-(n-i)^2-i^2=n^2-n^2+2ni-i^2-i^2=2ni-2i^2$.
+\end{enumerate}
+\end{exercise}
+
+\end{document}

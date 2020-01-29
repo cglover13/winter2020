@@ -47,13 +47,10 @@ B
 \item Recall that $A\mathbf{1}=\mathbf{k}$. So we have that $\mathbf{x}=\mathbf{1}+\alpha\mathbf{k}+\alpha^2 A\mathbf{k}+\dotsb$. Thus, we get that $\mathbf{x}=\mathbf{1}+(\sum_{i=0}^\infty\alpha^{i+1} A^{i})\mathbf{k}=\mathbf{1}+\alpha(\sum_{i=0}^\infty\alpha^i A^i)\mathbf{k}$. Thus, for small $\alpha$, we get that $\mathbf{x}\approx\mathbf{1}+\alpha\mathbf{k}$ since the terms $\alpha^r\mathbf{k}$ for $r\geq 2$ go to zero much faster. Adding $\mathbf{1}$ to $\mathbf{k}$ does not change the ranking of $\mathbf{k}$ and multiplying each entry of $\mathbf{k}$ by the same constant $\alpha$ does not change the ranking. So $\mathbf{x}$ gives the same ranking at $\mathbf{k}$ (i.e. degree centrality) as $\alpha\rightarrow 0$.
 
 \item Consider when $\alpha\rightarrow\frac{1}{\kappa_1}$. Then by part (a) we have that $\mathbf{x}$ is approaching
-\begin{align}
-\mathbf{x}&\rightarrow\mathbf{1}+\frac{1}{\kappa_1}A\mathbf{1}+\frac{1}{\kappa_2^2}A^2\mathbf{1}+\dotsb
-\end{align}
-This implies that $\kappa_1\mathbf{x}\rightarrow \kappa_1\mathbf{1}+A\mathbf{1}+\frac{1}{\kappa_1}A^2\mathbf{1}+\dotsb$. Again, evaluating on the dominant terms gives that $\kappa_1\mathbf{x}\approx \kappa_1\mathbf{1}+A\mathbf{1}=(\kappa_1I+A)\mathbf{1}$.
-
-This implies that $(I-\alpha A)\mathbf{x}=\mathbf{1}\rightarrow(I-\frac{1}{\kappa_1}A)\mathbf{x}=\mathbf{1}$.
+\[\mathbf{x}\rightarrow\frac{1}{\kappa_1}A\mathbf{x}+\mathbf{1}.\]
+Note that adding 1 to each entry of $\frac{1}{\kappa_1}A\mathbf{x}$ does not change the ranking of any of the nodes. Thus the ranking of $\frac{1}{\kappa_1}A\mathbf{x}+\mathbf{1}$ is the same as eigenvector centrality. Thus, $\mathbf{x}$ approaches eigenvector centrality as $\alpha\rightarrow\frac{1}{\kappa_1}$.
 \end{enumerate}
+
 \item 7.5: Let the center node be defined as $x_1$. Then 
 \[x_1=\alpha\sum_{j}A_{1j}\frac{x_j}{k_j^{out}}+\beta.\]
 Since we are looking at a tree, we know that $k_j^{out}=1$ for all nodes $x_j$. So we get that
