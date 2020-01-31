@@ -111,7 +111,7 @@ f_1(\alpha x+\beta y)&=\int_a^b(\alpha x+\beta y)(t)y_0(t)dt\\
 \end{align}
 So $f_1$ is linear. We now note that the continuity of $y_0(t)$ on a closed square implies that $y_0$ is bounded, say $|y_0(t)|\leq c$. So, 
 \begin{align}
-\|f_1(x)\|&=|\int_a^bx(t)y_0(t)dt|\\
+|f_1(x)|&=|\int_a^bx(t)y_0(t)dt|\\
 &\leq c|\int_a^bx(t)|\\
 &\leq c(b-a)\max_{t\in[a,b]}|x(t)|\\
 &=c(b-a)\|x\|.
@@ -131,8 +131,36 @@ So $f_2$ is linear.
 
 We now show that $f_2$ is bounded.
 \begin{align}
-\|f_2(x)\|=|\int_a^b\alpha x(a)+\beta
+|f_2(x)|&=|\alpha x(a)+\beta x(b)|\\
+&\leq|\alpha||x(a)|+|\beta||x(b)||\\
+&\leq|\alpha|\|x\|+|\beta|\|x\|\\
+&=(|\alpha|+|\beta|)\|x\|
 \end{align}
+Since these values are all constant, then $f_2$ is bounded.
+\end{exercise}
+
+\begin{exercise}{2.8.4}
+First consider $f_1(x)=\max_{t\in J}x(t)$ where $x\in C[a,b]$. Assume that $x(t)=y(t)$. Then $f_1(x)=\max_{t\in J}x(t)=\max_{t\in J}y(t)=f_1(y)$. So $f_1$ is well-defined. Further, since $x$ is a function, we see that $f_1(x)\in \mathbb{R}$ or $\mathbb{C}$. So $f_1$ is a functional. However, consider $x(t)=t^2$ and $y(t)=-t^2$ on the interval $[-1,\frac{1}{2}]$. Then $f_1(x)=1$ and $f_1(y)=0$. However $f_1(x+y)=\max_{t\in[-1,\frac{1/2}]}0=0$, which is not $f_1(x)+f_1(y)=1$. So $f_1$ is not linear on every interval $[a,b]$. Yet, we do see that
+\begin{align}
+f_1(x)&=\max_{t\in J}x(t)\\
+&\leq|\int_a^bx(t)dt|\\
+&=\|x\|.
+\end{align}
+So $f_1$ is bounded.
+
+Now consider $f_2(x)\min_{t\in J}$ where $x\in C[a,b]$. Assume that $x(t)=y(t)$. Then $f_2(x)=\min_{t\in J}x(t)=\min_{t\in J}y(t)=f_2(y)$. So $f_2$ is well-defined. Further, since $x$ is a function, we see that $f_2(x)\in\mathbb{R}$ or $\mathbb{C}$. So $f_2$ is a functional. However, consider $x(t)=t^2$ and $y(t)=-t^2$ on the interval $[-1,\frac{1}{2}]$. So $f_2(x)=0$ and $f_2(y)=1$. However, $f_2(x+y)=\min_{t\in[-1,\frac{1}{2}]}0=0$, which is not $f_2(x)+f_2(y)=1$. So $f_2$ is not linear. Yet, we do see that
+\begin{align}
+f_2(x)&=\min_{t\in J}x(t)\\
+&\leq|\int_a^bx(t)dt|\\
+&=\|x\|.
+\end{align}
+So $f_2$ is bounded.
+\end{exercise}
+
+\begin{exercise}{2.8.11}
+Let $f_1\neq 0$ and $f_2\neq 0$ be two linear functionals defined on the same vector space $X$. Assume that they have the same null space. Define a map $T\colon \mathscr{R}(f_1)\rightarrow \mathscr{R}(f_2)$ such that $Tf_1(x)=f_2(x)$. Given that the function is based on $x$, we can clearly see that $T$ is well-defined. We show that $T$ is injective. Assume that $Tf_1(x)=Tf_1(y)$. Then, $T(f_1(x)-f_1(y))=0$ so $T(f_1(x-y))=0$. So $f_2(x-y)=0$. Since $f_2$ and $f_1$ have the same null space, then $f_1(x-y)=0$. So $f_1(x)=f_1(y)$. Hence, $T$ is injective. Now let $f_2(x)\in\mathscr{R}(f_2)$. Then $f_1(x)\in\mathscr{R}(f_2)$ maps to $Tf_1(x)=f_2(x)$. So $T$ is bijective. Hence, $\mathscr{R}(f_1)\cong\mathscr{R}(f_2)$. 
+
+Now since $\mathscr{R}(f_1)\subseteq\mathbb{R}$, we know that $T$ can be represented by a 1x1 matrix (since $T$ is a linear operator and bijective) which is just some scalar $\alpha$. This means that $Tf_1(x)=\alpha f_1(x)=f_2(x)$.
 \end{exercise}
 
 \end{document}
