@@ -37,7 +37,7 @@ Let $X$ and $Y$ be normed spaces. Assume that a linear operator $T\colon X\right
 
 Now assume that $T\colon X\rightarrow Y$ maps bounded sets in $X$ to bounded sets in $Y$. Let $x\in X$. Then $\|Tx\|=\|y\|$ where $y\in Y$. If $x$ is in some bounded set of $X$, then $\|Tx\|\leq c$ for some $c$ since $y$ must be in a bounded set. Let $d=\frac{c}{\|x\|}$. Then $\|Tx\|\leq d\|x\|$.
 
-Now assme that $x$ is not in some bounded set of $X$. 
+Now assume that $x$ is not in some bounded set of $X$. So $\{x\}$ is unbounded. This means that $\|x\|=\infty$. This is a contradiction. So all $x$ are in some bounded set. Thus by the first part of the proof, $T$ is a bounded operator.
 \end{exercise}
 
 \begin{exercise}{2.7.6}
@@ -57,7 +57,82 @@ So $T$ is linear.
 \item (Bounded): Note that $\|Tx\|=\|(\frac{x_i}{i})\|$ Since $(\frac{x_i}{i})\in l^\infty$, each $\frac{x_i}{i}$ is bounded by some $M$. Thus, $\|(\frac{x_i}{i})\|=\sup_i\|\frac{x_i}{i}\|\leq M$. Let $c=\frac{M}{\|x\|}$. Then $\|Tx\|=\|(\frac{x_i}{i})\|=\sup_i|\frac{x_i}{i}|\leq M=c\|x\|$. So $\|Tx\|\leq c\|x\|$. So $T$ is bounded.
 \end{enumerate}
 
-Thus we know that $T$ is a bounded linear operator. We now consider $R(T)$. We know every sequence in $R(T)$ is of the form $(\frac{x_i}{i})$. Consider the sequence of sequences $(x_i)$ where $(x_i)=( .)$ where the first $i$ terms are $\frac{1}{n}$. So $T(x_i)=(\frac{1}{n},\frac{1}{2n}
+Thus we know that $T$ is a bounded linear operator. We now consider $R(T)$. We know every sequence in $R(T)$ is of the form $(\frac{x_i}{i})$. Consider the sequence of sequences $(x_i)$ where $(x_n)=(1,2,3,...,n,0,0,...)$. Then $Tx_n=(1,1,...,1,0,...)$. Note that as $n\rightarrow\infty$, $Tx_n\rightarrow (1,1,...)$. Since $(1,1,1,...)$ is bounded by 1, $(1,1,1,...)\in l^\infty$. However $T^{-1}(1,1,1,...)=(1,2,3,....)\notin X$. So $(1,1,1,...)\notin R(T)$. Thus, $R(T)$ is not closed.
+\end{exercise}
+
+\begin{exercise}{2.7.10}
+Let $X$ be $C[0,1]$ and define $S\colon= y(s)=s\int_0^1x(t)dt$ and $T\colon=y(s)=sx(s)$. First note that
+\begin{align}
+TSx(s)=T(s\int_0^1x(t)dt)=s^2\int_0^1x(t)dt\\
+STx(s)=S(sx(s))=s\int_0^1tx(t)dt.
+\end{align}
+So $ST\neq TS$.
+
+Then we see that
+\begin{align}
+\|S\|&=\sup_{x\in\mathscr{D},\|x\|=1}\|Sx\|\\
+&=\sup_{x\in\mathscr{D},\|x\|=1}\|s\int_0^1x(t)dt\|\\
+&=\max_{s\in[0,1]}|s\int_0^1x(t)dt|\\
+&=|\int_0^1x(t)|dt\\
+&=\|x\|.\\
+\|T\|&=\sup_{x\in\mathscr{D}(T),\|x\|=1}\|Tx\|\\
+&=\max_{s\in[0,1]}|sx(s)|.\\
+\|ST\|&=\max_{s\in[0,1]}|s\int_0^1tx(t)dt|\\
+&=|\int_0^1tx(t)dt|\\
+&=\|tx(t)\|\\
+\|TS\|&=\max_{s\in[0,1]}|s^2\int_0^1x(t)dt|\\
+&=|\int_0^1x(t)dt|\\
+&=\|x\|.
+\end{align}
+\end{exercise}
+
+\begin{exercise}{2.7.14}
+Let $\|x\|_1=\sum_{k=1}^n|x_k|$ and $\|y\|_2=\sum_{j=1}^r|y_j|$. Let $A$ be a $r\times n$ matrix $A=(\alpha_{jk})$ which defines a linear operator from the vector space $X$ of all ordered $n$-tuples of numbers into the vector space $Y$ of all ordered $r$-tuples of numbers. Then we see that
+\begin{align}
+\|Ax\|_2&=\sum_{i=1}^r|\sum_{j=1}^n\alpha_{ij}x_j|\\
+&\leq \sum_{i=1}^r\sum_{j=1}^n|\alpha_{ij}x_j|\\
+&\leq \max_k\sum_{i=1}^r\sum_{j=1}^n|\alpha_{ik}x_j|\\
+&\leq\max_k\sum_{i=1}^r|\alpha_{ik}|\sum_{j=1}^n|x_j|\\
+&=\|A\|\|x\|_1.
+\end{align}
+So $\|A\|$ is compatible.
+\end{exercise}
+
+\begin{exercise}{2.8.2}
+Let $y_0\in C[a,b]$. Then we see that for $\alpha,\beta\in\mathbb{R}$ (or $\mathbb{C}$), that
+\begin{align}
+f_1(\alpha x+\beta y)&=\int_a^b(\alpha x+\beta y)(t)y_0(t)dt\\
+&=\int_a^b((\alpha x)(t)+\beta y(t))y_0(t)dt\\
+&=\int_a^b(\alpha x(t)+\beta y(t))y_0(t)dt\\
+&=\int_a^b \alpha x(t)y_0(t)+\beta y(t)y_0(t)dt\\
+&=\int_a^b\alpha x(t)y_0(t)dt+\int_a^b\beta y(t)y_0(t)dt\\
+&=\alpha\int_a^b x(t)y_0(t)+\beta\int_a^b y(t)y_0(t)dt\\
+&=\alpha f_1(x)+\beta f_2(y).
+\end{align}
+So $f_1$ is linear. We now note that the continuity of $y_0(t)$ on a closed square implies that $y_0$ is bounded, say $|y_0(t)|\leq c$. So, 
+\begin{align}
+\|f_1(x)\|&=|\int_a^bx(t)y_0(t)dt|\\
+&\leq c|\int_a^bx(t)|\\
+&\leq c(b-a)\max_{t\in[a,b]}|x(t)|\\
+&=c(b-a)\|x\|.
+\end{align}
+Thus, $\|f_1(x)\|\leq c\|x\|$. So $f_1$ is bounded.
+
+Now consider $f_2(x)=\alpha x(a)+\beta x(b)$ for some fixed $\alpha,\beta$. Let $r,s$ be scalars. Then we see that
+\begin{align}
+f_2(rx+sy)&=\alpha((rx+sy)(a))+\beta((rx+sy)(b))\\
+&=\alpha((rx)(a)+(sy)(a))+\beta((rx)(b)+(sy)(b))\\
+&=\alpha(rx)(a)+\alpha(sy)(a)+\beta(rx)(b)+\beta(sy)(b)\\
+&=r\alpha x(a)+r\beta x(b)+s\alpha y(a)+s\beta y(b)\\
+&=r(\alpha x(a)+\beta x(b))+s(\alpha y(a)+\beta y(b))\\
+&=rf_2(x)+sf_2(y).
+\end{align}
+So $f_2$ is linear.
+
+We now show that $f_2$ is bounded.
+\begin{align}
+\|f_2(x)\|=|\int_a^b\alpha x(a)+\beta
+\end{align}
 \end{exercise}
 
 \end{document}
