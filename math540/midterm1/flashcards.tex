@@ -1,0 +1,480 @@
+\documentclass[avery5388,grid,frame]{flashcards}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\cardfrontstyle[\large\slshape]{headings}
+
+%\setlength{\cardmargin}{0.25in}
+
+\begin{document}
+
+\cardfrontfoot{Math 540: Linear Analysis (Midterm 1)}
+
+\begin{flashcard}[Definition]{Metric}
+The function $d$ is a \emph{metric} on $X$, defined on $X\times X$ such that for all $x,y,z\in X$ we have:
+\begin{enumerate}
+\item $d$ is finite, real-valued, and non-negative,
+\item $d(x,y)=0$ if and only if $x=y$,
+\item $d(x,z)\leq d(x,y)+d(y,z)$,
+\item $d(x,y)=d(y,x)$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Metric Space}
+A \emph{metric space} is a set $X$ with an associated metric $d$. Denoted $(X,d)$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Supspace (of a metric space)}
+A subset $Y\subset X$ of a metric space $(X,d)$ where the associated metric is $d|_{Y\times Y}$, the metric on $X$ restricted to $Y\times Y$. This metric is said to be induced.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on $\mathbb{R}^n$ ($\mathbb{C}^n$)}
+$d(\mathbb{x},\mathbb{y})=\sqrt{|x_1-y_1|^2+\dotsb+|x_n-y_n|^2}$
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on $l^\infty$}
+Let $x=(x_i)$ and $y=(y_i)$. Then $d(x,y)=\sup_i|x_i-y_i|$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{$l^\infty$}
+The set of all bounded sequences of complex numbers.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on $C[a,b]$}
+Let $x(t),y(t)\in C[a,b]$. Then $d(x,y)=\max_{t\in[a,b]}|x(t)-y(t)|$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Discrete Metric}
+Let $x,y\in X$. Then $d(x,y)=\begin{cases}1&x=y\\0&x\neq y\end{cases}$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on General Sequence Space}
+Let $X$ be a set of sequences (not necessarily bounded). Then on metric is
+\[d(x,y)=\sum_{j=1}^\infty\frac{1}{2^j}\frac{|x_j-y_j|}{1+|x_j-y_j|}.\]
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on space of bounded functions $B(A)$}
+Let $x(t),y(t)\in B(A)$. Then \[d(x,y)=\sup_{t\in A}|x(t)-y(t)|.\]
+\end{flashcard}
+
+\begin{flashcard}[Example]{Metric on $l^p$ for $p\geq 1$}
+Let $(x),(y)\in l^p$. Then
+\[d(x,y)=\Bigl(\sum_{j=1}^\infty|x_j-y_j|^p\Bigr)^{1/p}.\]
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{H\"{o}lder Inequality}
+Let $p>1$ and define $q$ by $\frac{1}{p}+\frac{1}{q}=1$. Then 
+\[\sum_{j=1}^\infty|x_jy_j|\leq\Bigl(\sum_{j=1}^\infty|x_i|^p\Bigr)^{1/p}\Bigl(\sum_{j=1}^\infty|y_j|^q\Bigr)^{1/q}.\]
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Cauchy-Schwarz Inequality}
+H\"{o}lder Inequality for $p=2$:
+\[\sum_{j=1}^\infty|x_jy_j|\leq\sqrt{\sum_{j=1}^\infty|x_i|^2}\sqrt{\sum_{j=1}^\infty|y_j|^2}.\]
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Minkowski's Inequality}
+Let $p\geq 1$. Then
+\[\Bigl(\sum_{j=1}^\infty|x_i+y_i|^p\Bigr)^{1/p}=\Bigl(\sum_{j=1}^\infty|x_i|^p\Bigr)^{1/p}+\Bigl(\sum_{j=1}^\infty|y_i|^p\Bigr)^{1/p}.\]
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Open Ball}
+Given a point $x_0\in X$ and a real number $r>0$, then a ball $B(x_0;r)=\{x\in X\colon d(x,x_0)<r\}$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Sphere}
+Given a point $x_0\in X$ and a real number $r>0$, then a sphere $S(x_0;r)=\{x\in X\colon d(x,x_0)=r\}$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Closed Ball}
+Given a point $x_0\in X$ and a real number $r>0$, then a closed ball is $\widetilde{B}(x_0;r)=\{x\in X\colon d(x,x_0)\leq r\}$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Open Set}
+Let $M\subseteq X$ be a subset of $X$. Then $M$ is an open set if for every $x\in M$, there exists an open ball $B(x;r)\in M$ for some $r>0$. (If $r=\epsilon$, then this is an $\epsilon$-neighborhood).
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Closed Set}
+Let $M\subseteq X$ be a subset of $X$. Then $M$ is a closed set if $M^c$ is open.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Interior of a set $M$}
+An interior point $x$ of $M$ is a point $x$ where $M$ is a neighborhood containing $x$. The interior of $M$, $M^0$, is the set of all interior points of $M$. This is the largest open set contained in $M$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Topology}
+A collection $\mathscr{T}$ of open subsets of $X$. It satisfies the following properties:
+\begin{enumerate}
+\item $\emptyset\in\mathscr{T},X\in\mathscr{T}$\\
+\item The union of any members of $\mathscr{T}$ is a member of $\mathscr{T}$
+\item The intersection of finitely many members of $\mathscr{T}$ is a member of $\mathscr{T}$. 
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Continuous Mapping}
+Let $X=(X,d)$ and $Y=(Y,\widetilde{d})$ be metrics spaces. A mapping $T\colon X\rightarrow Y$ is continuous at $x_0$ if for every $\epsilon>0$, there exists a $\delta>0$ such that  $\widetilde(Tx,Tx_0)<\epsilon$ for all $x\in X$ satisfying $d(x,x_0)<\delta$.
+$T$ is continuous if it is continuous for all $x\in X$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuous Mapping Theorem}
+Let $X=(X,d)$ and $Y=(Y,\widetilde{d})$ be a metric spaces and let $T\colon X\rightarrow Y$. Then $T$ is continuous if and only if the inverse image of any open set in $Y$ is an open set in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Accumulation Points and Closure}
+A point $x_0\in X$ is an accumulation point of $M$ is for every neighborhood of $x_0$, there is at least one point $y\in M$ distinct from $x_0$. The set consisting of all the points in $M$ and the accumulation points of $M$ is the closure of $M$, denoted $\overline{M}$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Dense Set and Separable Space}
+A subset of $M$ of a metric space is dense in $X$ if $\overline{M}=X$. $X$ is said to be separable if it has a countable subset which is dense in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Examples of Separable Sets}
+\begin{enumerate}
+\item $\mathbb{R}^n$
+\item $\mathbb{C}^n$
+\item A discrete metric space $X$ is separable if and only if $X$ is countable.
+\item The space $l^p$ for $1\leq p<\infty$ is separable.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Example]{Unexample of separable sets}
+$l^\infty$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Convergence of a sequence, limit}
+A sequence $(x_n)\in X$ converges if there exists some $x\in X$ such that for $\epsilon>0$, there exists $N>0$ such that when $n>N$, then $d(x_n,x)<\epsilon$. The limit of $(x_n)$ is said to be $x$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Bounded Set (in a metric space)}
+A set $M$ where $\sup_{x,y\in M}d(x,y)<\infty$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Boundedness, limit on metric spaces} 
+Let $X=(X,d)$ be a metric space. Then
+\begin{enumerate}
+\item A convergent sequence in $X$ is bounded and its limit is unique.
+\item If $x_n\rightarrow x$ and $y_n\rightarrow y$, then $d(x_n,y_n)\rightarrow d(x,y)$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Cauchy Sequences and Completeness}
+A sequence $(x_n)$ in a metric space $(X,d)$ is Cauchy if for every $\epsilon>0$, there exists an $N$ such that $d(x_n,x_m)<\epsilon$ for $n,m>N$. 
+
+The metric space $X$ is said to be complete if every Cauchy sequence converges.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Examples of Complete Metric Space}
+\begin{enumerate}
+\item Both $\mathbb{R}$ and $\mathbb{C}$.
+\item $l^\infty$
+\item The space $c$ of all convergent sequences of complex numbers, with the metric induced from $l^\infty$
+\item $l^p$
+\item $C[a,b]$
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Convergent Sequences and Cauchy Sequences}
+Every convergent sequence in a metric space $X=(X,d)$ is Cauchy in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Closure and Closed Sets}
+Let $M$ be a nonempty subset of a metric space $(X,d)$ and $\overline{M}$ its closure. Then
+\begin{enumerate}
+\item $x\in\overline{M}$ if and only if there is a sequence $(x_n)$ in $M$ such that $x_n\rightarrow x$,
+\item $M$ is closed if and only if having $x_n\in M$, then $x_n\rightarrow x$ implies that $x\in M$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Complete Subspace}
+A subspace $M$ of a complete metric space $X$ is complete if and only if the set $M$ is closed in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuous mapping (convergence)}
+A mapping $T\colon X\rightarrow Y$ of a metric space $X=(X,d)$ into a metric space $Y=(Y,\widetilde{d})$ is continuous at a point $x_0\in X$ if and only if $x_n\rightarrow x_0$ implies $Tx_n\rightarrow Tx_0$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Uniform Convergence}
+Convergence $x_m\rightarrow x$ in the space $C[a,b]$ is uniform convergence.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Unexamples of Complete Metric Spaces}
+\begin{enumerate}
+\item $\mathbb{Q}$
+\item Polynomials
+\item Continuous functions
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Defintion]{Isometric Mapping, Isometric Spaces}
+Let $X=(X,d)$ and $\widetilde{X}=(\widetilde{X},\widetilde{d})$ be metric spaces. Then
+\begin{enumerate}
+\item A mapping $T$ of $X$ into $\widetilde{X}$ is said to be isometric or an isometry if $T$ preserves distances, that is, if for all $x,y\in X$, $\widetilde{d}(Tx,Ty)=d(x,y)$,
+\item The space $X$ is said to be isometric with the space $\widetilde{X}$ if there exists a bijective isometry of $X$ onto $\widetilde{X}$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Metric Space Completion Theorem}
+For a metric space $X=(X,d)$ there exists a complete metric space $\hat{X}=(\hat{X},\hat{d})$ which has a subspace $W$ that is isometric with $X$ and is dense in $\hat{X}$. This space $\hat{X}$ is unique up to isometries.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Vector Space}
+A nonempty set $X$ over a field $K$ with addition and multiplication.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Examples of Vector Spaces}
+\begin{enumerate}
+\item $\mathbb{R}^n$
+\item $\mathbb{C}^n$
+\item $C[a,b]$
+\item $l^2$
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Hamel Basis}
+Let $X$ be a vector space (not necessarily finite dimensional). Then a linearly independent subset of $X$ which spans $X$ is called a Hamel basis.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Normed space, Banach Space}
+A normed space $X$ is a vector space with a norm.
+A Banach space is a complete normed space.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Norm}
+Let $X$ be a vector space. Then $\|\cdot\|$ is a norm on $X$ if it is a real-valued function such that
+\begin{enumerate}
+\item $\|x\|\geq 0$
+\item $\|x+y\|\leq\|x\|+\|y\|$
+\item $\|x\|=0$ if and only if $x=0$
+\item $\|\alpha x\|=|\alpha|\|x\|$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Metric Induced by a norm}
+$d(x,y)=\|x-y\|$
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Reverse triangle inequality}
+$|\|y\|-\|x\||\leq\|y-x\|$
+\end{flashcard}
+
+\begin{flashcard}[Example]{Norm on $\mathbb{R}^n$ and $\mathbb{C}^n$}
+$\|x\|=\Bigl(\sum_{j=1}^\infty |x_j|^2\Bigr)^{1/2}$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Norm on $l^p$}
+$\|x\|=\Bigl(\sum_{j=1}^\infty|x_j|^p\Bigr)^{1/p}$
+\end{flashcard}
+
+\begin{flashcard}[Example]{Norm on $l^\infty$}
+$\|x\|=\sup_i|x_i|$
+\end{flashcard}
+
+\begin{flashcard}[Example]{Norm on $C[a,b]$}
+$\|x\|=\max_{t\in[a,b]}|x(t)|$
+\end{flashcard}
+
+\begin{flashcard}[Example]{$L^p$}
+Completion of the normal space of all continuous real-value functions with norm $\|x\|_p=\Bigl(\int_a^b|x(t)|^pdt\Bigr)^{1/p}$
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Translation-Invariance}
+A metric $d$ induced by a norm on a normed space $X$ satisfies:
+\[d(x+a,y+a)=d(x,y)\]
+\[d(\alpha x,\alpha y)=|\alpha|d(x,y)\]
+for all $x,y,a\in X$ and every scalar $\alpha$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Subspace of  a Banach Space}
+A subspace $Y$ of a Banach space $X$ is complete if and only if the set $Y$ is closed in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Schauder Basis}
+If a normed space $X$ contains a sequence $(e-n)$ with the property that for every $x\in X$ there is a unique sequence of scalars $(\alpha_n)$ such that $\|x-(\alpha_1e_1+\dotsb+\alpha_ne_n)\|\rightarrow 0$ as $n\rightarrow\infty$, then $(e_n)$ is a Schauder basis for $X$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Completion of Normed Spaces}
+Let $X=(X,\|\cdot\|)$ be a normed space. Then there is a Banach space $\hat{X}$ and an isometry $A$ from $X$ onto a subspace $W$ of $\hat{X}$ which is dense in $\hat{X}$. The space $\hat{X}$ is unique, except for isometries.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Linear combinations}
+Let $\{x_1,...,x_n\}$ be a linearly independent set of vectors in a normed space $X$ (of any dimension). Then there is a number $c>0$ such that for every choice of scalars $\alpha_1,...,\alpha_n$ we have
+\[\|\alpha_1x_1+\dotsb+\alpha_nx_n\|\geq c(|\alpha_1|+\dotsb+|\alpha_n|).\]
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Finite Dimensional subspaces and completeness}
+Every finite dimensional subspace $Y$ of a normed space $X$ is complete. In particular, every finite dimensional normed space is complete.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Finite Dimensional and Closed}
+Every finite dimensional subspace $Y$ of a normed space $X$ is closed in $X$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Equivalent Norms}
+A norm $\|\cdot\|$ on a vector space $X$ is said to be equivalent to a norm $\|\cdot\|_0$ on $X$ if there are positive numbers $a$ and $b$ such that for all $x\in X$, we have $a\|x\|_0\leq\|x\|\leq b\|x\|_0$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Finite Dimensional: Equivalent Norms}
+For every pair of norms on a finite dimensional subspace of a normed space $X$, these norms are equivalent.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Topology: Equivalent norms}
+Equivalent norms on $X$ define the same topology on $X$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Compactness}
+A metric space is said to be compact if every sequence in $X$ has a convergent subsequence.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Compactness and Subspaces}
+A compact subset $M$ of a metric space is closed and bounded.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Compactness and Finite Dimensions}
+In a finite dimensional normed space $X$, any subset $M\subset X$ is compact if and only if it is closed and bounded.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Riesz's Lemma}
+Let $Y$ and $Z$ be subspaces of a normed space $X$ (of any dimension), and suppose that $Y$ is closed and is a proper subset of $Z$. Then for every real number $\theta$ in the interval $(0,1)$ there is a $z\in Z$ such that $\|z|=1$ and $\|z-y\|\geq\theta$ for all $y\in Y$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Compact unit ball}
+If a normed space $X$ has the property that the closed unit ball $M-\{x\colon\|x\|\leq 1\}$ is compact, then $X$ is finite dimensional.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuous mapping - compact}
+Let $X$ and $Y$ be metric spaces and $T\colon X\rightarrow Y$ a continuous mapping. Then the image of a compact subset $M$ of $X$ under $T$ is compact.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Maximum and Minimum}
+A continuous mapping $T$ of a compact subset $M$ of a metric space $X$ into $\mathbb{R}$ assumes a maximum and a minimum at some points of $M$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Examples of Linear Operators}
+\begin{enumerate}
+\item Identity operator
+\item Zero operator
+\item Differentiation
+\item Integration
+\item Multiplication by $t$
+\item Elementary vector algebra (cross and dot product)
+\item Matrices
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Range and Null Space}
+Let $T$ be a linear operator. Then
+\begin{enumerate}
+\item $\mathscr{R}(T)$ is a vector space
+\item $\mathscr{N}(t)$ is a vector space
+\item If $dim(\mathscr{D}(T))=n<\infty$, then $\mathscr{R}(T)\leq n$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Inverse Operator}
+Let $T$ be a linear operator. Then
+\begin{enumerate}
+\item $T^{-1}$ exists if and only if $Tx=0$ implies that $x=0$.
+\item If $T^{-1}$ exists, it is a linear operator.
+\item If dim$\mathscr{D}(T)=n<\infty$ and $T^{-1}$ exists, then $dim(\mathscr{R}(T))=dim(\mathscr{D}(T))$.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Inverse of product}
+Let $T\colon X\rightarrow Y$ and $S\colon Y\rightarrow Z$ be bijective linera operators, where $X,Y$ and $Z$ are vector spaces. Then the inverse $(ST)^{-1}\colon Z\rightarrow X$ of the product $ST$ exists and is $(ST)^{-1}=T^{-1}S^{-1}$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Bounded Linear Operator}
+Let $X$ and $Y$ be normed spaces and $T\colon\mathscr{D}(T)\rightarrow Y$ a linear operator, where $\mathscr{D}(T)\subset X$. The operator $T$ is said to be bounded if there is a real number $c$ such that
+\[\|Tx\|\leq c\|x\|.\]
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Norm of an operator}
+$\|T\|=\sup_{x\in\mathscr{D}(T),x\neq 0}\frac{\|Tx\|}{\|x\|}=\sup_{x\in\mathscr{D}(T),\|x\|=1}\|Tx\|$.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Examples of Bounded Linear Operators}
+\begin{enumerate}
+\item Identity operator
+\item Zero operator
+\item Differentiation operator
+\item Integral operator
+\item Matrix
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Finite dimensional bounded oeprators}
+If a normed space is finite dimensional, then every linear operator on $X$ is bounded.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuity and boundedness of operators}
+Let $T$ be a linear operator where $X,Y$ are normed spaces. Then
+\begin{enumerate}
+\item $T$ is continuous if and only if $T$ is bounded
+\item If $T$ is continuous at a single point, it is continuous.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuity, null space}
+Let $T$ be a bounded linear operator. Then,
+\begin{enumerate}
+\item $x_n\rightarrow x$ implies that $Tx_n\rightarrow Tx$.
+\item The null space $\mathscr{N}(T)$ is closed.
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Bounded Linear Extension}
+Let $T\colon \mathscr{D}(T)\rightarrow T$ be a bounded linear operator, where $\mathscr{D}(T)$ lies in a normed space $X$ and $Y$ is a Banach space. Then $T$ has an extension
+\[\widetilde{T}\colon\overline{\mathscr{D}(T)}\rightarrow Y\]
+where $\widetilde{T}$ is a bounded linear operator of norm $\|\widetilde{T}\|=\|T\|$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Linear Functional}
+A linear functional $f$ is a linear operator with domain in a vector space $X$ and range in the scalar field $K$ of $X$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Bounded Linear Functional}
+A bounded linear functional $f$ is a bounded linear operator with range in the scalar field of the normed space $X$ in which the domain $\mathscr{D}(f)$ lies. Thus there exists a real number $c$ such that for all $x\in\mathscr{D}(f)$,
+\[|f(x)|\leq c\|x\|.\]
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Norm of a Linear Functional}
+$\|f\|=\sup_{x\in\mathscr{D}(f),\|x\|=1}|f(x)|$.
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{Continuity and boundedness - Linear Functional} A linear functional $f$ with domain $\mathscr{D}(f)$ in a normed space is continuous if and only if $f$ is bounded.
+\end{flashcard}
+
+\begin{flashcard}[Example]{Linear Functional Examples}
+\begin{enumerate}
+\item Norm
+\item Dot product
+\item Definite integral
+\end{enumerate}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Algebraic Dual Space}
+The set of all linear functionals defined on a vector space $X$.
+Denoted $X^*$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Second Algebraic Dual Space}
+The set of linear functionals on $X^*$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Canonical Mapping}
+Mapping $C\colon X\rightarrow X^**$ by $x\mapsto g_x$.
+\end{flashcard}
+
+\begin{flashcard}[Definition]{Algebraically Reflexive}
+If $C$ is surjective (and hence bijective), then $X$ is algebraically reflexive.
+\end{flashcard}
+
+\end{document}
+
