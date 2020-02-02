@@ -1,0 +1,48 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+2/1/20\\
+Math 525
+\end{flushright}
+
+\begin{exercise}{7.8b}
+$\frac{3}{4}$
+\end{exercise}
+
+\begin{exercise}{7.8c}
+$\frac{1}{\sqrt{3}}$
+\end{exercise}
+
+\begin{exercise}{7.11}
+$\frac{2}{3n}n=\frac{2}{3}$.
+\end{exercise}
+
+\begin{exercise}{7.13}
+Assume that a loop in a graph has an odd number of negative edges in it. We first note that the ordering of the edges does not affect the coloring of the first and last node, so we choose the first $2n+1$ edges to be negative. Then node 1 will have a different color than node 2, node 2 than node 3, etc. Since there are only two colors, every node $2k+1$ for some $k$ will be the same color as node 1, and every node $2l$ for some $l$ will be the same color as node 2. Thus, node $2n+1$ has the same color as node 1. Since all the next edges are positive, the last node will have the same color as node $2n+1$ and thus the same color as node 1. Since these nodes are in a loop, there is a negative edge between the last node and node $1$, meaning they have the same color. This is a contradiction. Thus, the coloring process fails.
+
+We work contrapositively. Assume that $n$ is even and $n$ edges are negative in the loop. By the same reasoning as above, we choose the first $n$ edges to be negative. For the first $n+1$ nodes in the graph,  the odd numbered nodes will be one color while the even number will be another. Since $n$ is even, the $(n+1)^{st}$ node and the $1^{st}$ node will be different colors. The rest of the edges are positive, so the last node in the loop will be the same as the $(n+1)^{st}$. Thus the coloring of the last node and the first node in the loop are different. So the coloring does not fail.
+
+Hence the coloring fails if and only if there is an odd number of negative edges in the loop.
+\end{exercise}
+\end{document}
