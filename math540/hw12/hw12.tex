@@ -1,0 +1,72 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+1/27/20\\
+Math 540
+\end{flushright}
+
+\begin{center}
+HW 12\\
+2.9.1,4,5,9,10
+\end{center}
+
+\begin{exercise}{2.9.1}
+We solve for the null space as follows:
+\begin{align}
+\begin{pmatrix}1&3&2\\-2&1&0\end{pmatrix}&\rightarrow\begin{pmatrix}1&3&2\\0&7&4\end{pmatrix}.
+\end{align}
+So $x_1+3x_2+2x_3=0$ and $7x_2+4x_3=0$. Thu,s $x_1+3x_2=-2x_3$. Substituting we get $7x_2-2x_1-6x_2=x_2-2x_1=0$. So $x_2=2x_1$. Substituting back into the first equation, we get that $x_1+3x_2+2x_3=x_1+2x_1+3x_3=3x_1+3x_3=0$. So $x_3=-x_1$. Thus the null space is spanned by $\begin{pmatrix}x_1&2x_1&-x_1\end{pmatrix}^T$ where $x_1\in\mathbb{R}$.
+\end{exercise}
+
+\begin{exercise}{2.9.4}
+Let $\{f_1,f_2,f_3\}$ be the dual basis of $\{e_1,e_2,e_3\}$ for $\mathbb{R}^3$ where $e_1=(1,1,1), e_2=(1,1,-1),$ and $e_3=(1,-1,-1)$. Let $x=(1,0,0)$. So $x=e_1+e_3$. Thus, $f_1(x)=f_1(e_1+e_3)=1, f_2(x)=f_2(e_1+e_3)=0$, and $f_3(x)=f_3(e_1+e_3)=1$. 
+\end{exercise}
+
+\begin{exercise}{2.9.5}
+Let $f$ be a linear functional on an $n$-dimensional vector space $X$. Assume that $f$ is the zero function, then $\mathscr{N}(f)=X$. So the null space is $n$-dimensional.
+Now assume that $f$ is not the zero function. Let $x\in N(f)$. Since $x\in X$, we can rewrite $x$ as $x=\sum_{i=1}^n\alpha_ix_i$. So, $f(x)=\sum_{i=1}^n\alpha_if(x_i)=0$. Thus, $\hat{\alpha}_1f(x_1)=\sum_{i=2}^n\alpha_if(x_i)$ where $\hat{\alpha}=-\alpha$. 
+\end{exercise}
+
+\begin{exercise}{2.9.9}
+Let $X$ be the vector space of all real polynomials of a real variable and of degree less than a given $n$, together with $x=0$. Let $f(x)=x^{(k)}(a)$, the value of the $k^{th}$ derivative ($k$ fixed) of $x\in X$ at a fixed $a\in\mathbb{R}$. We show that this is a linear functional. It is clear that $f$ maps to the reals, so it suffices to show that it is linear. Let $x,y\in X$ and $\gamma,\lambda\in\mathbb{R}$. Then let $x=\alpha_0+\alpha_1 r+\dotsb+\alpha_nr^n$ and $y=\beta_0+\beta_1 r+\dotsb+\beta_n r^n$ where $\alpha_j$ and/or $\beta_j=0$ for all $j>l$ if $x$ (or $y$) has degree $l$. Then 
+\begin{align}
+f(\gamma x+\lambda y)&=f(\gamma(\alpha_0+\alpha_1 r+\dotsb+\alpha_nr^n)+\lambda(\beta_0+\beta_1 r+\dotsb+\beta_n r^n))\\
+&=f((\gamma\alpha_0+\lambda\beta_0)+(\gamma\alpha_1+\lambda\beta_1)r+\dotsb+(\gamma\alpha_n+\lambda\beta_n)r^n)\\
+&=((\gamma\alpha_1+\lambda\beta_1)+(\gamma\alpha_2+\lambda\beta_2)a+\dotsb+(\gamma\alpha_n+\lambda\beta_n)a^{n-1}\\
+&=\gamma\alpha_1+\gamma\alpha_2a+\dotsb+\gamma\alpha_na^{n-1}+\lambda\beta_1+\lambda\beta_2a+\dotsb+\lambda\beta_na^{n-1}\\
+&=\gamma(\alpha_1+\alpha_2a+\dotsb+\alpha_na^{n-1})+\lambda(\beta_1+\beta_2a+\dotsb+\beta_na^{n-1})\\
+&=\gamma f(x)+\lambda f(y).
+\end{align}
+So $f$ is linear and thus a linear functional.
+\end{exercise}
+
+\begin{exercise}{2.9.10}
+Let $Z$ be a proper subspace of an $n$-dimensional vector space $X$, and let $x_0\in X-Z$. Let $f$ be a functional defined by
+\[f(x)=\begin{cases}1&x=x_0\\0&x\neq x_0\end{cases}.\]
+We show that $f$ is linear. Let $\alpha,\beta\in \mathbb{R}$. We work by cases:
+\begin{enumerate}
+\item Let $x\in X$ and $x\neq x_0$. Then $f(x+x_0)=0$ and $f(x)+f(x_0)=1$. 
+\end{enumerate}
+\end{exercise}
+\end{document}
