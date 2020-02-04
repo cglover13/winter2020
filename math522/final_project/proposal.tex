@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+
+\begin{center}
+\textbf{Project Proposal}\\
+Cory Glover\\
+Math 522
+\end{center}
+
+I plan to follow track 2 for my project. The paper I plan to analyze is ``Predict then Propagate: Graph Neural Networks Meet Personalized Pagerank'' by Klicpera, Bojchevski, and G\''{u}nnemann. This paper was published in 2019 at the International Conference on Learning Representations. This paper finds a solution to the problem of small neighborhoods in neural networks. Many neural networks look at a small neighborhood around a given node to create node aggregation schemes. The problem that arises is that the neighborhood around a node is too small, but looking at a larger neighborhood is computationaly unreasonable and often leads to oversmoothing. Klicpera et al. utilize personalized pagerank to learn about a larger neighborhood of a given node while not increasing complexity and avoiding oversmoothing the network when propogating. By creating a scheme with personalized pagerank, they access all the tools already developed in computing pagerank. Finally, they show how this propogation technique can be applied to many algorithms already in place.
+
+My plan is to do background research on neural network propogation and discover the pitfalls of the already in place algorithms. Then I plan to understand their new method using personalized pagerank. At the end of their paper, they perform experiments to verify results. If time permits, I plan to run a few of these experiments. I plan to finish the bulk of background research by the end of February to allow ample time to parse their paper during the month of March, and then run experiments and create a report through the month of April.
+
+I can send you a link to the paper if you want to look over it.
+
+\end{document}
