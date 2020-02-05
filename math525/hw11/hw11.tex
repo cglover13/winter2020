@@ -1,0 +1,66 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+2/4/20\\
+Math 525
+\end{flushright}
+
+\begin{center}
+HW 11
+\end{center}
+
+\begin{exercise}{7.15}
+Recall that $\mathbf{\sigma}=(\mathbf{D}-\alpha\mathbf{A})^{-1}$. 
+This means that
+\begin{align}
+\sigma&=(\mathbf{D}-\alpha\mathbf{A})^{-1}\\
+\sigma^{-1}&=\mathbf{D}-\alpha\mathbf{A}\\
+\sigma^{-1}\mathbf{D}^{-1}&=\mathbf{I}-\alpha\mathbf{A}\mathbf{D}^{-1}\\
+(\mathbf{D}\sigma)^{-1}&=\mathbf{I}-\alpha\mathbf{A}\mathbf{D}^{-1}.
+\end{align}
+Recall that the pagerank centrality is given by $\mathbf{x}=(\mathbf{I}-\alpha\mathbf{A}\mathbf{D}^{-1})^{-1}\mathbf{1}$. This means that
+\begin{align}
+\mathbf{x}&=(\mathbf{I}-\alpha\mathbf{A}\mathbf{D}^{-1})^{-1}\mathbf{1}\\
+&=\mathbf{D}\sigma\mathbf{1}\\
+\mathbf{D}^{-1}\mathbf{x}&=\sigma\mathbf{1}.
+\end{align}
+Then we see that $\sigma_i=\sum_j\sigma_{ij}$ is just the $i^{th}$ entry of $\sigma\mathbf{1}$ since we are summing over the columns. Note that since $D$ is diagonal, the $D^{-1}$ is diagonal with diagonal entries $\frac{1}{k_i}$. So the $i^{th}$ entry of $\mathbf{D}^{-1}\mathbf{x}$ is $\frac{1}{k_i}x_i$. So $\sigma_i=\frac{1}{k_i}x_i$. Hence $\sigma_i$ is just the pagerank centrality of $i$ divided by the degree of node $i$.
+\end{exercise}
+
+\begin{exercise}{7.16}
+
+\begin{tabular}{c|c|c}
+Group&$e_r$&$a_r$\\
+\hline
+Black&.258&.354\\
+\hline
+Hispanic&.157&.294\\
+\hline
+White&.306&.494\\
+\hline
+Other&.016&.121
+\end{tabular}
+\end{exercise}
+
+\end{document}

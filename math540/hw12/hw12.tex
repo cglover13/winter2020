@@ -40,12 +40,20 @@ So $x_1+3x_2+2x_3=0$ and $7x_2+4x_3=0$. Thu,s $x_1+3x_2=-2x_3$. Substituting we 
 \end{exercise}
 
 \begin{exercise}{2.9.4}
+<<<<<<< HEAD
+Let $\{f_1,f_2,f_3\}$ be the dual basis of $\{e_1,e_2,e_3\}$ for $\mathbb{R}^3$ where $e_1=(1,1,1), e_2=(1,1,-1),$ and $e_3=(1,-1,-1)$. Let $x=(1,0,0)$. So $x=e_1+e_3$. Thus, $f_1(x)=\frac{1}{2},f_2(x)=0,$ and $f_3(x)=\frac{1}{2}$. 
+=======
 Let $\{f_1,f_2,f_3\}$ be the dual basis of $\{e_1,e_2,e_3\}$ for $\mathbb{R}^3$ where $e_1=(1,1,1), e_2=(1,1,-1),$ and $e_3=(1,-1,-1)$. Let $x=(1,0,0)$. So $x=e_1+e_3$. Thus, $f_1(x)=f_1(e_1+e_3)=1, f_2(x)=f_2(e_1+e_3)=0$, and $f_3(x)=f_3(e_1+e_3)=1$. 
+>>>>>>> ab5a990437ef93c7384eee894e3f536764cc5103
 \end{exercise}
 
 \begin{exercise}{2.9.5}
 Let $f$ be a linear functional on an $n$-dimensional vector space $X$. Assume that $f$ is the zero function, then $\mathscr{N}(f)=X$. So the null space is $n$-dimensional.
+<<<<<<< HEAD
+Now assume that $f$ is not the zero function. We know that the $f$ maps to the real numbers (or complex numbers) which each have dimension one. Then by the rank-nullity theorem, we know that $n=\mathscr{N}(f)+1$. So the null space must have dimension $n-1$.
+=======
 Now assume that $f$ is not the zero function. Let $x\in N(f)$. Since $x\in X$, we can rewrite $x$ as $x=\sum_{i=1}^n\alpha_ix_i$. So, $f(x)=\sum_{i=1}^n\alpha_if(x_i)=0$. Thus, $\hat{\alpha}_1f(x_1)=\sum_{i=2}^n\alpha_if(x_i)$ where $\hat{\alpha}=-\alpha$. 
+>>>>>>> ab5a990437ef93c7384eee894e3f536764cc5103
 \end{exercise}
 
 \begin{exercise}{2.9.9}
@@ -62,11 +70,15 @@ So $f$ is linear and thus a linear functional.
 \end{exercise}
 
 \begin{exercise}{2.9.10}
+<<<<<<< HEAD
+Let $Z$ be a proper subspace of an $n$-dimensional vector space $X$, and let $x_0\in X-Z$. We define a basis of $Z$ as $\{z_1,z_2,...,z_r\}$. Since $x_0\notin X-Z$, we extend the basis of $Z$ to $\{z_1,...,z_r,x_0\}$. Then we extend this basis to be a basis of $X$ by $\{z_1,...,z_r,x_0,x_1,...,x_k\}$. So every $x\in X$ can be written as $x=\sum_{i=1}^r\alpha_iz_i+\beta_0x_0+\sum_{i=1}^k\beta_ix_i$. Then we define the dual basis functions as $f_{v}(x)=\delta_{vx}$ as described in the chapter. From the chapter, we know that these are linear functionals. Then the basis functional, $f_{x_0}(x_0)=1$ but $f_{x_0}(z)=0$ for all $z\in Z$. 
+=======
 Let $Z$ be a proper subspace of an $n$-dimensional vector space $X$, and let $x_0\in X-Z$. Let $f$ be a functional defined by
 \[f(x)=\begin{cases}1&x=x_0\\0&x\neq x_0\end{cases}.\]
 We show that $f$ is linear. Let $\alpha,\beta\in \mathbb{R}$. We work by cases:
 \begin{enumerate}
 \item Let $x\in X$ and $x\neq x_0$. Then $f(x+x_0)=0$ and $f(x)+f(x_0)=1$. 
 \end{enumerate}
+>>>>>>> ab5a990437ef93c7384eee894e3f536764cc5103
 \end{exercise}
 \end{document}
