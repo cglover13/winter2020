@@ -1,0 +1,7 @@
+In[2]:= n = Range[10,200,10]
+Out[2]= {10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200}
+In[5]:= For[i=1;graphs={},i<=20,i++,AppendTo[graphs,RandomGraph[{n[[i]],Ceiling[Power[n[[i]],1.5]]}]]]
+In[27]:= For[i=1;time={},i<=20,i++,AppendTo[time,First[Timing[MeanClusteringCoefficient[graphs[[i]]]]]]]
+In[28]:= For[i=1;plot={},i<=20,i++,AppendTo[plot,{n[[i]],time[[i]]}]]
+In[33]:= ListLinePlot[plot,AxesLabel->{n_,time_}]
+Out[33]= 
