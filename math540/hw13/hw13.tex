@@ -58,33 +58,31 @@ We choose $\epsilon_{x_0}=\frac{\epsilon}{\epsilon^*+\|x_0\|}$ such that $\epsil
 \end{exercise}
 
 \begin{exercise}{2.10.6}
-Let $X$ be the space of ordered $n$-tuples of real numbers and $\|x\|=\max_i|x_i|$ where $x=(x_1,...,x_n)$.  We first define the basis on $X$ by $e_i=(0,0,...,0,1,0,...,0)$ where the only nonzero entry is the $i^{th}$ entry. Then for $x\in X$, $x=\sum_{i=1}^n\alpha_ie_i$. 
+Let $X$ be the space of ordered $n$-tuples of real numbers and $\|x\|=\max_i|x_i|$ where $x=(x_1,...,x_n)$.  Thus the norm on the dual space is $\|f\|=\sup_{x\in X,x\neq 0}\frac{|f(x)|}{\max_i|x_i|}$.
 
-Now let $f$ be in the dual space of $X$. So $f$ is a bounded linear functional. Thus, 
-\[f(x)=f(\sum_{i=1}^n\alpha_ie_i)=\sum_{i=1}^n\alpha_if(e_i).\]
-Define $f(e_i)=\gamma_i$. 
-Note that
-\[|\gamma_i|=|f(e_i)|\leq\|f\|\|e_i\|=\|f\|\]
-since $f$ is bounded and since $\|e_i\|=1$. Thus we see that $\max_i|\gamma_i|\leq\|f\|$.
-
-Now note that \[|f(x)|=|f(\sum_{i=1}^n\alpha_ie_i)|=|\sum_{i=1}^n\alpha_if(e_i)|\leq\sum_{i=1}^n|\alpha_i||f(e_i)|\leq n\max_{i,j}|\alpha_i||\gamma_j|=\max_i\|n x\||\gamma_j|.\]
-Taking the maximum over all $x$ of norm $\frac{1}{n}$, we get that $\|f\|\leq\max_j|\gamma_j|$. So $\|f\|=\max_j|\gamma_j|$.
+%Now let $f$ be in the dual space of $X$. So $f$ is a bounded linear functional. Thus, 
+%\[f(x)=f(\sum_{i=1}^n\alpha_ie_i)=\sum_{i=1}^n\alpha_if(e_i).\]
+%Define $f(e_i)=\gamma_i$. 
+%Note that
+%\[|\gamma_i|=|f(e_i)|\leq\|f\|\|e_i\|=\|f\|\]
+%since $f$ is bounded and since $\|e_i\|=1$. Thus we see that $\max_i|\gamma_i|\leq\|f\|$.
+%
+%Now note that \[|f(x)|=|f(\sum_{i=1}^n\alpha_ie_i)|=|\sum_{i=1}^n\alpha_if(e_i)|\leq\sum_{i=1}^n|\alpha_i||f(e_i)|\leq n\max_{i,j}|\alpha_i||\gamma_j|=\max_i\|n x\||\gamma_j|.\]
+%Taking the maximum over all $x$ of norm $\frac{1}{n}$, we get that $\|f\|\leq\max_j|\gamma_j|$. So $\|f\|=\max_j|\gamma_j|$.
 \end{exercise}
 
 \begin{exercise}{2.10.10}
-Let $X$ and $Y\neq\{0\}$ be normed vector spaces, with dim $X=\infty$. Let $B=(x_1,x_2,...)$ be a Hamel basis for $X$. Define a linear operator $T\colon X\rightarrow Y$. We work by cases:
-\begin{enumerate}
-\item Let dim $Y=\infty$. Then there exists a Hamel basis for $Y$, $(y_1,y_2,...)$. Then define $T(x_i)=y_i$. So consider $x=x_1+2x_2+3x_3+\dotsb$. Assume by way of contradiction that there exists $c\in\mathbb{R}$ such that $\|Tx\|\leq c\|x\|$. Then
+Let $X$ and $Y\neq\{0\}$ be normed vector spaces, with dim $X=\infty$. Let $B=(x_1,x_2,...)$ be a Hamel basis for $X$. Define a linear operator $T\colon X\rightarrow Y$. Let $y\in Y$ such that $y\neq 0$. Then we define $T$ as
 \begin{align}
-\|Tx\|&=\|\sum_{i=1}^\infty iTx_i\|\\
-&\leq c\|x\|.
+T(x_1)&=y\\
+T(x_2)&=2y\\
+&\vdots\\
+T(x_i)&=iy\\
+&\vdots
 \end{align}
-However also note that
-\begin{align}
-\|Tx\|&=\|\sum_{i=1}^\infty iTx_i\|\\
-&\leq\sum_{i=1}^\infty i\|Tx_i\|
-\end{align}
-\end{enumerate}
+and $T(\alpha x_i)=\alpha iy$ for some scalar $\alpha$. Further, we define it such that $T(x)=T(\sum_{i=1}^\infty\alpha_ix_i)=\sum_{i=1}^\infty\alpha_iT(x_i)$. This function is clearly well-defined and linear.
+
+Now we show that $T$ is not bounded. We know that $\|Tx\|=\|\sum_{i=1}^\infty\alpha_i(i)y\|\leq\sum_{i=1}^\infty\alpha_i i\|y\|=\infty$. So $T$ is not bounded.
 \end{exercise}
 
 \end{document}
