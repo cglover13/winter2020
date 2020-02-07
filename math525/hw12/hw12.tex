@@ -32,7 +32,7 @@ Math 525
 
 \begin{exercise}{8.1}
 \begin{enumerate}
-\item $O(n)$
+\item $O(n^2)$
 \item $O(n)$
 \end{enumerate}
 \end{exercise}
@@ -40,8 +40,16 @@ Math 525
 \begin{exercise}{8.3}
 \begin{enumerate}
 \item $O(n^2)$
-\item $O(m)$
-\item $O(m)$. Consider the vector multiplication of the modularity matrix. Since vector multiplication is distributive, we can multiply the vector by the adjacency matrix using list format, which as shown above is $O(m)$. Then to calculate $\frac{k_ik_j}{2m}$ for every combination of $i$ and $j$ takes $n$ calculations of $O(m/n)$, since we are finding how many nodes are connected to another node. So in total this takes $O(m)$. So we have 2 operations of complexity $O(m)$, thus the whole process is $O(m)$.
+\item $O(n)$ since there are $m$ multiplications and $m$ additions and $m\propto n$.
+\item Note that $Bv=Av-\frac{1}{2m}Kv$ where $K_{ij}=k_ik_j$. We also note that $K_iv=k_ik_1v_1+k_ik_2v_2+\dotsb+k_ik_nv_n=k_i(\sum_{j=1}^nk_jv_j)$ where $K_i$ is the $i^{th}$ row of $K$. We then devise the following algorithm:
+\begin{enumerate}
+\item Compute $Av$.
+\item Calculate each $k_i$.
+\item Calculate $\sum_{i=1}^nk_iv_i$.
+\item Calculate each $k_i(\sum_{j=1}^nk_jv_j)$.
+\item Add $(Av)_i$ to $k_i(\sum_{j=1}^nk_jv_j)$ for each $i$.
+\end{enumerate}
+We analyze each step. From part (2) we know that step one has complexity $O(n)$. The second step has complexity $O(m/n)$ for each node, so in total has complexity $O(n)$. The third step has $n$ multiplications and $n$ additions and is thus $O(n)$. The fourth step is $n$ multiplications so it has $O(n)$. The last step has $n$ additions so it is $O(n)$. So overall, the algorithm has complexity $O(n)$.
 \end{enumerate}
 \end{exercise}
 \end{document}
