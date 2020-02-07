@@ -1,0 +1,90 @@
+ \documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[letterpaper, portrait, margin=1in,top=1in,bottom=1.5in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{exercise}[1]{\textbf{#1.}}
+
+\begin{document}
+
+\begin{flushright}
+Cory Glover\\
+2/6/20\\
+Math 540
+\end{flushright}
+
+\begin{center}
+HW 13\\
+2.10.2,4,6,10
+\end{center}
+
+\begin{exercise}{2.10.2}
+Let $f$ and $g$ be bounded linear functionals with domains in a normed space $X$. Let $\alpha,\beta$ be nonzero scalars. We define a function $h=\alpha f+\beta g$. Since $h$ is defined in terms of $f$, $\mathscr{D}(h)\subset\mathscr{D}(f)$. Similarly, $\mathscr{D}(h)\subset\mathscr{D}(g)$. Thus, $\mathscr{D}(h)\subset\mathscr{D}(f)\cap\mathscr{D}(g)$.  Further, let $x\in\mathscr{D}(h)$. So $h(x)=\alpha f(x)+\beta g(x)$ is defined. So $x\in\mathscr{D}(f)\cap\mathscr{D}(g)$. Thus, $\mathscr{D}(h)=\mathscr{D}(f)\cap\mathscr{D}(g)$.
+
+Since $h$ takes on values of $X$ and maps them to real-valued numbers (since it is a linear combination of real-valued numbers), $h$ is indeed a functional. It suffices to show it is bounded. Note that for all $x\in\mathscr{D}(h)$,
+\begin{align}
+|h(x)|&=|\alpha f(x)+\beta g(x)|\\
+&\leq|\alpha f(x)|+|\beta g(x)|\\
+&\leq|\alpha||f(x)|+|\beta||g(x)|\\
+&\leq|\alpha|c\|x\|+|\beta|d\|x\|\\
+&=(|\alpha|c+|\beta|d)\|x\|,
+\end{align}
+where $c,d\in\mathbb{R}$ since $f$ and $g$ are bounded linear functionals. Thus, $h$ is a bounded linear functional.
+\end{exercise}
+
+\begin{exercise}{2.10.4}
+Let $X$ and $Y$ be normed spaces and $T_n\colon X\rightarrow Y$ ($n=1,2,\dotsb)$ bounded linear operators. Assume that $T_n\rightarrow R$. Let $\epsilon >0$ and choose $N$. Then when $n>N$, we see that $\|T_n-T\|\leq\epsilon$. Let $x\in \overline{B(x_0;\epsilon^*)}$. So $\|x-x_0\|\leq \epsilon^*$. Then we see that
+\begin{align}
+\|T_nx-Tx\|&=\|T_nx-Tx+Tnx_0-Tnx_0+Tx_0-Tx_0\|\\
+&\leq\|T_nx-Tx-T_nx_0+Tx\|+\|T_nx_0-Tx_0\|\\
+&=\|(T_n-T)(x-x_0)\|+\|(T_n-T)x_0\|\\
+&\leq\|T_n-T\|\|x-x_0\|+\|T_n-T\|\|x_0\|\\
+&<\epsilon(\epsilon^*+\|x_0\|).
+\end{align}
+We choose $\epsilon_{x_0}=\frac{\epsilon}{\epsilon^*+\|x_0\|}$ such that $\epsilon_{x_0}<\epsilon'$. Since $\epsilon$ is arbitrary, then $\|T_nx-Tx\|<\epsilon'$.
+\end{exercise}
+
+\begin{exercise}{2.10.6}
+Let $X$ be the space of ordered $n$-tuples of real numbers and $\|x\|=\max_i|x_i|$ where $x=(x_1,...,x_n)$.  We first define the basis on $X$ by $e_i=(0,0,...,0,1,0,...,0)$ where the only nonzero entry is the $i^{th}$ entry. Then for $x\in X$, $x=\sum_{i=1}^n\alpha_ie_i$. 
+
+Now let $f$ be in the dual space of $X$. So $f$ is a bounded linear functional. Thus, 
+\[f(x)=f(\sum_{i=1}^n\alpha_ie_i)=\sum_{i=1}^n\alpha_if(e_i).\]
+Define $f(e_i)=\gamma_i$. 
+Note that
+\[|\gamma_i|=|f(e_i)|\leq\|f\|\|e_i\|=\|f\|\]
+since $f$ is bounded and since $\|e_i\|=1$. Thus we see that $\max_i|\gamma_i|\leq\|f\|$.
+
+Now note that \[|f(x)|=|f(\sum_{i=1}^n\alpha_ie_i)|=|\sum_{i=1}^n\alpha_if(e_i)|\leq\sum_{i=1}^n|\alpha_i||f(e_i)|\leq n\max_{i,j}|\alpha_i||\gamma_j|=\max_i\|n x\||\gamma_j|.\]
+Taking the maximum over all $x$ of norm $\frac{1}{n}$, we get that $\|f\|\leq\max_j|\gamma_j|$. So $\|f\|=\max_j|\gamma_j|$.
+\end{exercise}
+
+\begin{exercise}{2.10.10}
+Let $X$ and $Y\neq\{0\}$ be normed vector spaces, with dim $X=\infty$. Let $B=(x_1,x_2,...)$ be a Hamel basis for $X$. Define a linear operator $T\colon X\rightarrow Y$. We work by cases:
+\begin{enumerate}
+\item Let dim $Y=\infty$. Then there exists a Hamel basis for $Y$, $(y_1,y_2,...)$. Then define $T(x_i)=y_i$. So consider $x=x_1+2x_2+3x_3+\dotsb$. Assume by way of contradiction that there exists $c\in\mathbb{R}$ such that $\|Tx\|\leq c\|x\|$. Then
+\begin{align}
+\|Tx\|&=\|\sum_{i=1}^\infty iTx_i\|\\
+&\leq c\|x\|.
+\end{align}
+However also note that
+\begin{align}
+\|Tx\|&=\|\sum_{i=1}^\infty iTx_i\|\\
+&\leq\sum_{i=1}^\infty i\|Tx_i\|
+\end{align}
+\end{enumerate}
+\end{exercise}
+
+\end{document}
